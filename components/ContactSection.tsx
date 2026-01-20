@@ -56,7 +56,7 @@ export default function ContactSection() {
                             />
                         </div>
                         <div>
-                            <p className="text-xl font-bold text-gray-950 leading-tight">24/7 Support <br /> for Clinics</p>
+                            <p className="text-xl font-bold text-gray-950 leading-tight">24/7 Pharmacy <br /> Helpline</p>
                             <div className="flex items-center gap-2 mt-2">
                                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                                 <span className="text-sm font-semibold text-green-600">Online •</span>

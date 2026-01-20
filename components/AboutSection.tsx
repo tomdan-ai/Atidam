@@ -15,7 +15,7 @@ const stats = [
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
             </svg>
         ),
-        description: "Thousands of satisfied patients who trust us for their health needs.",
+        description: "Thousands of happy customers who trust us for their prescriptions.",
         bgColor: "bg-green-100",
         iconColor: "text-green-600",
     },
@@ -26,29 +26,29 @@ const stats = [
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
             </svg>
         ),
-        description: "Specialists dedicated to your well-being.",
+        description: "Licensed pharmacists ready to serve you.",
         bgColor: "bg-gray-100",
         iconColor: "text-gray-600",
     },
     {
-        number: "20+",
+        number: "30+",
         icon: (
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
             </svg>
         ),
-        description: "Years of experience in providing exceptional healthcare.",
+        description: "Years of trusted pharmacy service in your community.",
         bgColor: "bg-orange-100",
         iconColor: "text-orange-600",
     },
     {
-        number: "14+",
+        number: "5K+",
         icon: (
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
             </svg>
         ),
-        description: "Medical departments across various specialties.",
+        description: "Medicines and health products available in stock.",
         bgColor: "bg-cyan-100",
         iconColor: "text-cyan-600",
     },
@@ -146,17 +146,17 @@ export default function AboutSection() {
                                 className="w-full h-full object-cover"
                             />
                         </div>
-                        YOUR HEALTH FIRST
+                        YOUR WELLNESS FIRST
                     </h2>
 
                     <p
                         ref={paragraphRef}
                         className="text-gray-600 text-xl max-w-3xl mx-auto leading-relaxed mb-10"
                     >
-                        Our clinic offers a full range of general medical services,
-                        tailored to meet the unique needs of every patient.
-                        With a team of skilled professionals, we aim to provide high-
-                        quality care in a welcoming and supportive environment.
+                        Our pharmacy offers a complete range of prescription medications,
+                        over-the-counter products, and health consultations.
+                        With expert pharmacists on staff, we aim to provide personalized
+                        care in a friendly and accessible environment.
                     </p>
 
                     <motion.button
@@ -165,7 +165,7 @@ export default function AboutSection() {
                         whileTap={{ scale: 0.95 }}
                         className="bg-green-400 hover:bg-green-500 text-green-950 px-10 py-4 rounded-full font-semibold transition-all text-base shadow-lg"
                     >
-                        About Us
+                        Learn More
                     </motion.button>
                 </div>
 

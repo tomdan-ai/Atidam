@@ -15,7 +15,7 @@ export default function Footer() {
 
                     {/* Brand Info */}
                     <div className="flex flex-col gap-8">
-                        <h2 className="text-6xl font-black tracking-tighter text-gray-950">BeU+</h2>
+                        <h2 className="text-6xl font-black tracking-tighter text-gray-950">Rx+</h2>
                     </div>
 
                     {/* Navigation Links */}
@@ -24,7 +24,7 @@ export default function Footer() {
                         <div className="flex flex-col gap-6">
                             <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400">Navigation</h4>
                             <ul className="flex flex-col gap-4">
-                                {["About Us", "Services", "Patient Resources", "Contact Us", "Careers"].map((link) => (
+                                {["About Us", "Products", "Health Resources", "Contact Us", "Locations"].map((link) => (
                                     <li key={link}>
                                         <a href="#" className="text-gray-950 font-bold hover:text-green-600 transition-colors uppercase text-[13px] tracking-wide">
                                             {link}
@@ -53,7 +53,7 @@ export default function Footer() {
                             <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400">Contacts</h4>
                             <ul className="flex flex-col gap-4">
                                 <li><a href="tel:8085550111" className="text-gray-950 font-bold hover:text-green-600 transition-colors text-[13px] tracking-wide">(808) 555-0111</a></li>
-                                <li><a href="mailto:BeUclinic@gmail.com" className="text-gray-950 font-bold hover:text-green-600 transition-colors text-[13px] tracking-wide">BeUclinic@gmail.com</a></li>
+                                <li><a href="mailto:RxPlusPharmacy@gmail.com" className="text-gray-950 font-bold hover:text-green-600 transition-colors text-[13px] tracking-wide">RxPlusPharmacy@gmail.com</a></li>
                                 <li className="text-gray-400 font-bold text-[13px] tracking-wide">775 Rolling Green Rd</li>
                             </ul>
                         </div>
@@ -81,7 +81,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-gray-100 gap-8">
                     <div className="flex items-center gap-8 text-sm font-semibold text-gray-400">
-                        <p>© 2024 by BeU Clinic. All rights reserved</p>
+                        <p>© 2024 by Rx+ Pharmacy. All rights reserved</p>
                         <span className="hidden md:inline">/</span>
                         <a href="#" className="hover:text-gray-900 transition-colors">Privacy Policy</a>
                     </div>

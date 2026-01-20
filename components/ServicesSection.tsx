@@ -10,19 +10,19 @@ gsap.registerPlugin(ScrollTrigger);
 
 const services = [
     {
-        title: "General medicine",
+        title: "Prescription Drugs",
         image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=800&auto=format&fit=crop",
-        tags: ["Therapy", "Family medicine", "Diagnostics", "Geriatrics"],
+        tags: ["Generic", "Brand Name", "Specialty", "Compounding"],
     },
     {
-        title: "Pediatrics",
-        image: "https://images.unsplash.com/photo-1581594632702-52c1138c242b?q=80&w=800&auto=format&fit=crop",
-        tags: ["Therapy", "Consultation", "Diagnostics"],
+        title: "Vitamins & Supplements",
+        image: "https://images.unsplash.com/photo-1550572017-edd951b55104?q=80&w=800&auto=format&fit=crop",
+        tags: ["Multivitamins", "Minerals", "Herbal"],
     },
     {
-        title: "Diagnostics",
-        image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=800&auto=format&fit=crop",
-        tags: ["Abdominal ultrasound diagnostics", "Family medicine", "Preventive check-up"],
+        title: "Personal Care",
+        image: "https://images.unsplash.com/photo-1556228841-a3c527ebefe5?q=80&w=800&auto=format&fit=crop",
+        tags: ["Skincare", "First Aid", "Wellness Products"],
     },
 ];
 
@@ -85,7 +85,7 @@ export default function ServicesSection() {
                 {/* Header Section */}
                 <div ref={headerRef} className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-20 animate-item">
                     <h2 className="text-4xl md:text-5xl lg:text-5xl font-medium tracking-tight text-gray-900 max-w-4xl leading-tight">
-                        We are dedicated to providing comprehensive, compassionate, and high-quality healthcare services tailored to meet your unique needs.
+                        We offer a wide range of quality medications, health products, and expert advice to support your wellness journey.
                     </h2>
 
                     <motion.button
@@ -93,7 +93,7 @@ export default function ServicesSection() {
                         whileTap={{ scale: 0.98 }}
                         className="flex items-center gap-3 border border-gray-200 rounded-full pl-8 pr-2 py-2 group hover:border-gray-900 transition-colors"
                     >
-                        <span className="text-sm font-semibold text-gray-900">All Services</span>
+                        <span className="text-sm font-semibold text-gray-900">All Products</span>
                         <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600 group-hover:bg-green-600 group-hover:text-white transition-colors">
                             <ArrowRight className="size-4" />
                         </div>

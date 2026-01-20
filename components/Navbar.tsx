@@ -11,7 +11,7 @@ export default function Navbar() {
       transition={{ duration: 1, ease: "easeOut" }}
       className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between py-8 px-16 max-w-[1600px] mx-auto w-full mix-blend-difference"
     >
-      <div className="text-3xl font-black tracking-tighter text-white">Be+</div>
+      <div className="text-3xl font-black tracking-tighter text-white">Rx+</div>
 
       <div className="hidden md:flex items-center gap-10 text-xs font-bold uppercase tracking-widest text-white/80">
         <Link href="#" className="hover:text-white transition-colors relative group">
@@ -19,11 +19,11 @@ export default function Navbar() {
           <span className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all group-hover:w-full" />
         </Link>
         <Link href="#" className="hover:text-white transition-colors relative group">
-          Services
+          Products
           <span className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all group-hover:w-full" />
         </Link>
         <Link href="#" className="hover:text-white transition-colors relative group">
-          Patient Resources
+          Health Resources
           <span className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all group-hover:w-full" />
         </Link>
         <Link href="#" className="hover:text-white transition-colors relative group">
@@ -31,7 +31,7 @@ export default function Navbar() {
           <span className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all group-hover:w-full" />
         </Link>
         <Link href="#" className="hover:text-white transition-colors relative group">
-          Careers
+          Locations
           <span className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all group-hover:w-full" />
         </Link>
       </div>

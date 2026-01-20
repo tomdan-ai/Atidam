@@ -11,16 +11,16 @@ gsap.registerPlugin(ScrollTrigger);
 const testimonials = [
     {
         name: "Ralph Edwards",
-        role: "Patient",
+        role: "Customer",
         avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Ralph",
-        text: "The team at BeU Clinic exceeded all my expectations. From the moment I walked in, I was treated with kindness and professionalism. Every step of my treatment plan was explained clearly, and I felt truly cared for.",
+        text: "The team at Rx+ Pharmacy exceeded all my expectations. From the moment I walked in, I was treated with kindness and professionalism. Every prescription was handled with care, and I felt truly valued as a customer.",
         rating: 4.6,
     },
     {
         name: "Brooklyn Simmons",
-        role: "Patient",
+        role: "Customer",
         avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Brooklyn",
-        text: "I couldn't be more grateful for the care I received at BeU Clinic. The staff was attentive, professional, and genuinely caring throughout my treatment. From the first consultation to the follow-ups, I felt confident I was in good hands. Thanks to their expertise, my health has significantly improved. Highly recommend to anyone seeking quality medical care!",
+        text: "I couldn't be more grateful for the service I received at Rx+ Pharmacy. The pharmacists were attentive, professional, and genuinely helpful. From filling my prescriptions to answering my questions about supplements, I felt confident I was in good hands. Highly recommend to anyone looking for a reliable pharmacy!",
         rating: 4.9,
     },
 ];
@@ -88,7 +88,7 @@ export default function TestimonialsSection() {
                     <div ref={leftRef} className="relative rounded-[3rem] overflow-hidden aspect-[4/5] shadow-2xl">
                         <img
                             src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=1000&auto=format&fit=crop"
-                            alt="Professional doctor"
+                            alt="Professional pharmacist"
                             className="w-full h-full object-cover"
                         />
                     </div>
@@ -97,10 +97,10 @@ export default function TestimonialsSection() {
                     <div ref={rightRef} className="flex flex-col gap-10 pt-10">
                         <div>
                             <h2 className="text-7xl font-bold tracking-tighter text-gray-950 mb-8 leading-none">
-                                We value the trust our patients place in us.
+                                We value the trust our customers place in us.
                             </h2>
                             <p className="text-gray-400 text-xl leading-relaxed max-w-xl font-medium">
-                                Hear their stories and experiences about the care and support they received at our clinic. Your feedback inspires us to provide even better medical services every day!
+                                Hear their stories and experiences about the service and support they received at our pharmacy. Your feedback inspires us to provide even better care every day!
                             </p>
                         </div>
 

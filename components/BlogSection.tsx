@@ -12,29 +12,29 @@ const blogPosts = [
     {
         image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop",
         readTime: "6 Min read",
-        title: "What your blood test results can reveal about your health?",
-        excerpt: "Additionally, blood tests can uncover early signs of diseases like diabetes, anemia, or heart problems, providing a foundation for...",
+        title: "How to safely manage your prescription medications",
+        excerpt: "Understanding your prescriptions is key to managing your health. Learn tips on dosage, timing, and potential drug interactions...",
         date: "Dec 2, 2024",
     },
     {
         image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=800&auto=format&fit=crop",
         readTime: "4 Min read",
-        title: "The role of dietary supplements in effective weight management.",
-        excerpt: "Dietary supplements can be a helpful addition to a weight management plan, supporting metabolism and providing essential nutrients.",
+        title: "The truth about generic vs. brand-name medications",
+        excerpt: "Are generic medications as effective as their brand-name counterparts? We break down the facts to help you make informed decisions.",
         date: "Dec 2, 2024",
     },
     {
         image: "https://images.unsplash.com/photo-1543286386-2e659306cd6c?q=80&w=800&auto=format&fit=crop",
         readTime: "3 Min read",
-        title: "Understanding your DNA: a gateway to personalized medicine",
-        excerpt: "Your DNA holds the blueprint to your unique health profile, influencing everything from your genetic predispositions to how you...",
+        title: "Why immunizations are essential for all ages",
+        excerpt: "Vaccines aren't just for kids. Discover why staying up-to-date on immunizations is important for adults and seniors alike...",
         date: "Dec 2, 2024",
     },
     {
         image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop",
         readTime: "8 Min read",
-        title: "Women's vitamin complexes: supporting health at every stage",
-        excerpt: "Women's vitamin complexes are specially formulated to meet the unique nutritional needs of women at different life stages...",
+        title: "Your guide to choosing the right vitamins for your lifestyle",
+        excerpt: "With so many options on the shelf, picking the right vitamins can be overwhelming. Our pharmacists share their top recommendations...",
         date: "Dec 2, 2024",
     },
 ];
@@ -86,10 +86,10 @@ export default function BlogSection() {
                 <div ref={headerRef} className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-20">
                     <div className="max-w-4xl">
                         <h2 className="text-6xl md:text-7xl font-bold tracking-tighter text-gray-950 mb-8 leading-[0.9]">
-                            Explore expert health advice, medical tips, and the latest in wellness trends
+                            Explore expert pharmacy tips, medication guides, and the latest in health trends
                         </h2>
                         <p className="text-gray-400 text-xl font-medium max-w-2xl leading-relaxed">
-                            Your go-to resource for health tips, expert advice, and wellness insights. We collect data from clinics worldwide, provided to government organizations.
+                            Your go-to resource for medication safety, supplement advice, and wellness insights. Curated by our team of licensed pharmacists.
                         </p>
                     </div>
 

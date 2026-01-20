@@ -47,9 +47,9 @@ export default function Hero() {
                         {/* Heading */}
                         <div className="overflow-hidden">
                             <h1 className="text-7xl md:text-8xl lg:text-[6rem] font-black tracking-tighter text-gray-950 leading-[1] animate-item">
-                                We are here <br />
-                                to help you <br />
-                                <span className="text-green-600">stay</span> healthy.
+                                Your trusted <br />
+                                pharmacy for <br />
+                                <span className="text-green-600">better</span> health.
                             </h1>
                         </div>
 
@@ -59,7 +59,7 @@ export default function Hero() {
                             whileTap={{ scale: 0.98 }}
                             className="bg-green-400 hover:bg-green-500 text-green-950 px-10 py-5 rounded-full font-bold transition-all text-xl shadow-lg hover:shadow-green-200/50 animate-item"
                         >
-                            Make an appointment
+                            Order prescriptions
                         </motion.button>
 
                         {/* Stats Footer */}
@@ -78,8 +78,8 @@ export default function Hero() {
                             </div>
 
                             <div className="border-l-4 border-gray-200 pl-20">
-                                <div className="text-5xl font-black text-gray-950 mb-2">20+</div>
-                                <p className="text-sm uppercase tracking-[0.2em] font-black text-gray-400">Years experience</p>
+                                <div className="text-5xl font-black text-gray-950 mb-2">50+</div>
+                                <p className="text-sm uppercase tracking-[0.2em] font-black text-gray-400">Store locations</p>
                             </div>
                         </div>
 
