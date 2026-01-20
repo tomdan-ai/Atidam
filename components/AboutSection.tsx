@@ -1,6 +1,11 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
     {
@@ -50,14 +55,91 @@ const stats = [
 ];
 
 export default function AboutSection() {
+    const sectionRef = useRef<HTMLElement>(null);
+    const headingRef = useRef<HTMLHeadingElement>(null);
+    const paragraphRef = useRef<HTMLParagraphElement>(null);
+    const buttonRef = useRef<HTMLButtonElement>(null);
+    const cardsRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (!sectionRef.current) return;
+
+        const ctx = gsap.context(() => {
+            // Heading animation
+            gsap.from(headingRef.current, {
+                y: 80,
+                opacity: 0,
+                duration: 1.4,
+                ease: "power3.inOut",
+                scrollTrigger: {
+                    trigger: headingRef.current,
+                    start: "top 85%",
+                    end: "top 50%",
+                    toggleActions: "play none none reverse",
+                },
+            });
+
+            // Paragraph animation
+            gsap.from(paragraphRef.current, {
+                y: 60,
+                opacity: 0,
+                duration: 1.2,
+                ease: "power3.inOut",
+                scrollTrigger: {
+                    trigger: paragraphRef.current,
+                    start: "top 85%",
+                    end: "top 50%",
+                    toggleActions: "play none none reverse",
+                },
+            });
+
+            // Button animation
+            gsap.from(buttonRef.current, {
+                y: 40,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.inOut",
+                scrollTrigger: {
+                    trigger: buttonRef.current,
+                    start: "top 90%",
+                    end: "top 60%",
+                    toggleActions: "play none none reverse",
+                },
+            });
+
+            // Cards stagger animation
+            if (cardsRef.current) {
+                const cards = cardsRef.current.querySelectorAll(".stat-card");
+                gsap.from(cards, {
+                    y: 100,
+                    opacity: 0,
+                    duration: 1.2,
+                    stagger: 0.2,
+                    ease: "power3.inOut",
+                    scrollTrigger: {
+                        trigger: cardsRef.current,
+                        start: "top 80%",
+                        end: "top 40%",
+                        toggleActions: "play none none reverse",
+                    },
+                });
+            }
+        }, sectionRef);
+
+        return () => ctx.revert();
+    }, []);
+
     return (
-        <section className="py-24 bg-white">
-            <div className="max-w-[1600px] mx-auto px-16">
+        <section ref={sectionRef} className="min-h-screen py-32 bg-white flex flex-col justify-center">
+            <div className="max-w-[1600px] mx-auto px-16 w-full">
                 {/* Header with embedded image */}
-                <div className="text-center mb-12">
-                    <h2 className="text-5xl md:text-6xl font-light text-gray-300 tracking-wide italic flex items-center justify-center gap-4 mb-10">
+                <div className="text-center mb-16">
+                    <h2
+                        ref={headingRef}
+                        className="text-5xl md:text-6xl font-light text-gray-300 tracking-wide italic flex items-center justify-center gap-4 mb-12"
+                    >
                         WE PUT
-                        <div className="w-24 h-12 rounded-full overflow-hidden bg-gray-200 inline-flex">
+                        <div className="w-28 h-14 rounded-full overflow-hidden bg-gray-200 inline-flex shadow-lg">
                             <img
                                 src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=200&auto=format&fit=crop"
                                 alt="Doctors"
@@ -67,7 +149,10 @@ export default function AboutSection() {
                         YOUR HEALTH FIRST
                     </h2>
 
-                    <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed mb-8">
+                    <p
+                        ref={paragraphRef}
+                        className="text-gray-600 text-xl max-w-3xl mx-auto leading-relaxed mb-10"
+                    >
                         Our clinic offers a full range of general medical services,
                         tailored to meet the unique needs of every patient.
                         With a team of skilled professionals, we aim to provide high-
@@ -75,30 +160,28 @@ export default function AboutSection() {
                     </p>
 
                     <motion.button
+                        ref={buttonRef}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="bg-green-400 hover:bg-green-500 text-green-950 px-8 py-3 rounded-full font-semibold transition-all text-sm"
+                        className="bg-green-400 hover:bg-green-500 text-green-950 px-10 py-4 rounded-full font-semibold transition-all text-base shadow-lg"
                     >
                         About Us
                     </motion.button>
                 </div>
 
                 {/* Stats Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
+                <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-20">
                     {stats.map((stat, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1, duration: 0.5 }}
-                            className={`${stat.bgColor} rounded-3xl p-8 flex flex-col justify-between min-h-[280px]`}
+                            whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeInOut" } }}
+                            className={`stat-card ${stat.bgColor} rounded-3xl p-10 flex flex-col justify-between min-h-[320px] shadow-sm hover:shadow-xl transition-shadow duration-500`}
                         >
-                            <div className="text-6xl font-bold text-gray-900">
+                            <div className="text-7xl font-bold text-gray-900">
                                 {stat.number}
                             </div>
                             <div>
-                                <div className={`${stat.iconColor} mb-3`}>
+                                <div className={`${stat.iconColor} mb-4`}>
                                     {stat.icon}
                                 </div>
                                 <p className="text-sm text-gray-600 leading-relaxed">
