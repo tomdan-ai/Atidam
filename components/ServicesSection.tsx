@@ -11,17 +11,17 @@ gsap.registerPlugin(ScrollTrigger);
 const services = [
     {
         title: "Prescription Drugs",
-        image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=800&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?q=80&w=800&auto=format&fit=crop",
         tags: ["Generic", "Brand Name", "Specialty", "Compounding"],
     },
     {
         title: "Vitamins & Supplements",
-        image: "https://images.unsplash.com/photo-1550572017-edd951b55104?q=80&w=800&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=800&auto=format&fit=crop",
         tags: ["Multivitamins", "Minerals", "Herbal"],
     },
     {
         title: "Personal Care",
-        image: "https://images.unsplash.com/photo-1556228841-a3c527ebefe5?q=80&w=800&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=800&auto=format&fit=crop",
         tags: ["Skincare", "First Aid", "Wellness Products"],
     },
 ];

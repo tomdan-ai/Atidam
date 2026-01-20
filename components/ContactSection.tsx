@@ -50,7 +50,7 @@ export default function ContactSection() {
                     >
                         <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-xl sm:rounded-2xl overflow-hidden shadow-md flex-shrink-0">
                             <img
-                                src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=200&auto=format&fit=crop"
+                                src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=200&auto=format&fit=crop"
                                 alt="Support Specialist"
                                 className="w-full h-full object-cover"
                             />

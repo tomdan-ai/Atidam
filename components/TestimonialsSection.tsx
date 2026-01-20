@@ -84,7 +84,7 @@ export default function TestimonialsSection() {
                     {/* Left Column: Big Image */}
                     <div ref={leftRef} className="relative rounded-2xl sm:rounded-[2rem] lg:rounded-[3rem] overflow-hidden aspect-square sm:aspect-[4/5] shadow-xl sm:shadow-2xl">
                         <img
-                            src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=1000&auto=format&fit=crop"
+                            src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1000&auto=format&fit=crop"
                             alt="Professional pharmacist"
                             className="w-full h-full object-cover"
                         />
