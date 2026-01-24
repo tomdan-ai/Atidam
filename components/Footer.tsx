@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Linkedin, Facebook, ArrowUp } from "lucide-react";
+import { Linkedin, Facebook, ArrowUp, Instagram, Twitter } from "lucide-react";
 
 export default function Footer() {
     const scrollToTop = () => {
@@ -9,91 +9,82 @@ export default function Footer() {
     };
 
     return (
-        <footer className="bg-white py-12 sm:py-16 md:py-20 lg:py-24 border-t border-gray-50">
+        <footer className="bg-white py-12 sm:py-16 md:py-20 lg:py-24 border-t border-gray-100">
             <div className="max-w-[1600px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 w-full">
-                <div className="flex flex-col lg:flex-row justify-between items-start gap-10 sm:gap-12 md:gap-16 lg:gap-20 mb-12 sm:mb-16 md:mb-24 lg:mb-32">
+                <div className="flex flex-col lg:grid lg:grid-cols-4 justify-between items-start gap-12 lg:gap-20 mb-12 sm:mb-16 md:mb-24 lg:mb-32">
 
                     {/* Brand Info */}
-                    <div className="flex flex-col gap-4 sm:gap-6 md:gap-8">
-                        <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-gray-950">Rx+</h2>
-                    </div>
-
-                    {/* Navigation Links */}
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-32 w-full lg:w-auto">
-                        {/* Navigation */}
-                        <div className="flex flex-col gap-4 sm:gap-5 md:gap-6">
-                            <h4 className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-gray-400">Navigation</h4>
-                            <ul className="flex flex-col gap-2 sm:gap-3 md:gap-4">
-                                {["About Us", "Products", "Health Resources", "Contact Us", "Locations"].map((link) => (
-                                    <li key={link}>
-                                        <a href="#" className="text-gray-950 font-bold hover:text-green-600 transition-colors uppercase text-[11px] sm:text-[12px] md:text-[13px] tracking-wide">
-                                            {link}
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        {/* Resources */}
-                        <div className="flex flex-col gap-4 sm:gap-5 md:gap-6">
-                            <h4 className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-gray-400">Resources</h4>
-                            <ul className="flex flex-col gap-2 sm:gap-3 md:gap-4">
-                                {["Blog", "FAQ"].map((link) => (
-                                    <li key={link}>
-                                        <a href="#" className="text-gray-950 font-bold hover:text-green-600 transition-colors uppercase text-[11px] sm:text-[12px] md:text-[13px] tracking-wide">
-                                            {link}
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        {/* Contacts */}
-                        <div className="flex flex-col gap-4 sm:gap-5 md:gap-6 col-span-2 sm:col-span-1">
-                            <h4 className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-gray-400">Contacts</h4>
-                            <ul className="flex flex-col gap-2 sm:gap-3 md:gap-4">
-                                <li><a href="tel:8085550111" className="text-gray-950 font-bold hover:text-green-600 transition-colors text-[11px] sm:text-[12px] md:text-[13px] tracking-wide">(808) 555-0111</a></li>
-                                <li><a href="mailto:RxPlusPharmacy@gmail.com" className="text-gray-950 font-bold hover:text-green-600 transition-colors text-[11px] sm:text-[12px] md:text-[13px] tracking-wide break-all">RxPlusPharmacy@gmail.com</a></li>
-                                <li className="text-gray-400 font-bold text-[11px] sm:text-[12px] md:text-[13px] tracking-wide">775 Rolling Green Rd</li>
-                            </ul>
+                    <div className="flex flex-col gap-6 col-span-1">
+                        <h2 className="text-3xl font-black tracking-tighter text-gray-950">Atidam</h2>
+                        <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
+                            A licensed pharmaceutical wholesale distributor delivering quality, speed, and reliability across Nigeria.
+                        </p>
+                        <div className="flex gap-4">
+                            <motion.a href="#" whileHover={{ y: -3 }} className="text-gray-400 hover:text-green-600"><Linkedin className="size-5" /></motion.a>
+                            <motion.a href="#" whileHover={{ y: -3 }} className="text-gray-400 hover:text-green-600"><Facebook className="size-5" /></motion.a>
+                            <motion.a href="#" whileHover={{ y: -3 }} className="text-gray-400 hover:text-green-600"><Instagram className="size-5" /></motion.a>
+                            <motion.a href="#" whileHover={{ y: -3 }} className="text-gray-400 hover:text-green-600"><Twitter className="size-5" /></motion.a>
                         </div>
                     </div>
 
-                    {/* Social Icons */}
-                    <div className="flex gap-3 sm:gap-4">
-                        <motion.a
-                            href="#"
-                            whileHover={{ scale: 1.1, backgroundColor: "#000", color: "#fff" }}
-                            className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full border border-gray-100 flex items-center justify-center text-gray-950 transition-colors"
-                        >
-                            <Linkedin className="size-4 sm:size-5 md:size-6" />
-                        </motion.a>
-                        <motion.a
-                            href="#"
-                            whileHover={{ scale: 1.1, backgroundColor: "#000", color: "#fff" }}
-                            className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full border border-gray-100 flex items-center justify-center text-gray-950 transition-colors"
-                        >
-                            <Facebook className="size-4 sm:size-5 md:size-6" />
-                        </motion.a>
+                    {/* Navigation */}
+                    <div className="flex flex-col gap-6">
+                        <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400">Company</h4>
+                        <ul className="flex flex-col gap-4">
+                            {["About Atidam", "Products", "Specialty Services", "Partnerships", "Contact"].map((link) => (
+                                <li key={link}>
+                                    <a href="#" className="text-gray-900 font-medium hover:text-green-600 transition-colors text-sm">
+                                        {link}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Legal */}
+                    <div className="flex flex-col gap-6">
+                        <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400">Legal</h4>
+                        <ul className="flex flex-col gap-4">
+                            {["Privacy Policy", "Terms of Service", "Cookie Policy", "Licensing"].map((link) => (
+                                <li key={link}>
+                                    <a href="#" className="text-gray-900 font-medium hover:text-green-600 transition-colors text-sm">
+                                        {link}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Contacts */}
+                    <div className="flex flex-col gap-6 col-span-1">
+                        <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400">Contact Us</h4>
+                        <div className="space-y-4">
+                            <div>
+                                <p className="text-xs font-bold text-gray-400 uppercase mb-1">Phone</p>
+                                <a href="tel:+2347061920889" className="text-gray-950 font-medium hover:text-green-600 transition-colors text-sm block">+234 706 192 0889</a>
+                                <a href="tel:+2348033378445" className="text-gray-950 font-medium hover:text-green-600 transition-colors text-sm block">+234 803 337 8445</a>
+                            </div>
+                            <div>
+                                <p className="text-xs font-bold text-gray-400 uppercase mb-1">Email</p>
+                                <a href="mailto:info@atidampharmaceuticals.com" className="text-gray-950 font-medium hover:text-green-600 transition-colors text-sm">info@atidampharmaceuticals.com</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="flex flex-col sm:flex-row justify-between items-center pt-8 sm:pt-10 md:pt-12 border-t border-gray-100 gap-4 sm:gap-6 md:gap-8">
-                    <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 md:gap-8 text-xs sm:text-sm font-semibold text-gray-400 text-center sm:text-left">
-                        <p>© 2024 by Rx+ Pharmacy. All rights reserved</p>
-                        <span className="hidden sm:inline">/</span>
-                        <a href="#" className="hover:text-gray-900 transition-colors">Privacy Policy</a>
-                    </div>
+                <div className="flex flex-col sm:flex-row justify-between items-center pt-8 sm:pt-10 border-t border-gray-100 gap-6">
+                    <p className="text-sm font-medium text-gray-400 text-center sm:text-left">
+                        © 2026 Atidam Pharmaceuticals Limited. All rights reserved.
+                    </p>
 
                     {/* Scroll to Top */}
                     <motion.button
                         onClick={scrollToTop}
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-2xl sm:rounded-3xl border border-gray-100 flex items-center justify-center text-gray-950 shadow-sm hover:shadow-lg transition-all"
+                        whileHover={{ scale: 1.1, backgroundColor: "#059669", color: "#fff" }}
+                        className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center text-gray-950 shadow-sm transition-all"
                     >
-                        <ArrowUp className="size-5 sm:size-6" />
+                        <ArrowUp className="size-5" />
                     </motion.button>
                 </div>
             </div>
