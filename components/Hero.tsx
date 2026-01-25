@@ -32,11 +32,16 @@ export default function Hero() {
     return (
         <div
             ref={heroRef}
-            className="w-full min-h-screen bg-cover bg-center bg-no-repeat relative overflow-hidden hero-bg"
-            style={{ backgroundImage: 'url(/hero.jpeg)' }}
+            className="w-full min-h-screen relative overflow-hidden"
         >
-            {/* Overlay for better readability */}
-            <div className="absolute inset-0 bg-white/10 md:bg-white/5 lg:bg-transparent" />
+            {/* Background Image with Blur */}
+            <div
+                className="absolute inset-0 bg-cover bg-[center_top] sm:bg-center bg-no-repeat scale-105 sm:scale-110 hero-bg blur-sm transition-transform duration-1000"
+                style={{ backgroundImage: 'url(/reception.jpg)' }}
+            />
+
+            {/* Premium Gradient Overlay for Readability */}
+            <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-white/10 sm:from-white/90 sm:via-white/50 sm:to-transparent" />
 
             <div ref={contentRef} className="max-w-[1600px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 min-h-screen relative z-10">
                 <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-start lg:items-center min-h-screen justify-center lg:justify-start">
@@ -45,20 +50,23 @@ export default function Hero() {
 
                         {/* Heading */}
                         <div className="overflow-hidden">
-                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[6rem] font-black tracking-tighter text-gray-950 leading-[1.05] animate-item">
-                                Your trusted <br />
-                                pharmacy for <br />
-                                <span className="text-green-600">better</span> health.
+                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[6rem] font-black tracking-tighter text-slate-900 leading-[1.05] animate-item">
+                                Leading <br />
+                                <span className="text-emerald-700">Wholesale</span> & <br />
+                                Retail Pharmacy
                             </h1>
+                            <p className="text-lg sm:text-xl text-slate-600 max-w-lg font-medium">
+                                Your trusted partner for pharmaceutical distribution and retail healthcare solutions.
+                            </p>
                         </div>
 
                         {/* CTA Button */}
                         <motion.button
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            className="bg-green-400 hover:bg-green-500 text-green-950 px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-full font-bold transition-all text-base sm:text-lg md:text-xl shadow-lg hover:shadow-green-200/50 animate-item"
+                            className="bg-emerald-700 hover:bg-emerald-800 text-white px-8 py-4 sm:px-10 sm:py-5 rounded-full font-bold transition-all text-base sm:text-lg md:text-xl shadow-xl hover:shadow-emerald-900/20 animate-item"
                         >
-                            Order prescriptions
+                            Partner with Us
                         </motion.button>
 
                         {/* Stats Footer */}
@@ -77,8 +85,8 @@ export default function Hero() {
                             </div>
 
                             <div className="border-l-0 sm:border-l-4 border-gray-200 pl-0 sm:pl-10 md:pl-16 lg:pl-20 pt-4 sm:pt-0 border-t-4 sm:border-t-0">
-                                <div className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-950 mb-1 sm:mb-2">50+</div>
-                                <p className="text-xs sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.2em] font-black text-gray-400">Store locations</p>
+                                <div className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-950 mb-1 sm:mb-2">8+</div>
+                                <p className="text-xs sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.2em] font-black text-gray-400">Years of Excellence</p>
                             </div>
                         </div>
 

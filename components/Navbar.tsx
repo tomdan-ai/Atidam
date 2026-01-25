@@ -9,11 +9,12 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { label: "About Us", href: "#" },
-    { label: "Products", href: "#" },
-    { label: "Health Resources", href: "#" },
-    { label: "Contact Us", href: "#" },
-    { label: "Locations", href: "#" },
+    { label: "About", href: "/about" },
+    { label: "Wholesale", href: "/wholesale" },
+    { label: "Cold Room", href: "/cold-room" },
+    { label: "Partners", href: "/partners" },
+    { label: "Community", href: "/community" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (

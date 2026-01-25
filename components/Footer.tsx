@@ -15,7 +15,7 @@ export default function Footer() {
 
                     {/* Brand Info */}
                     <div className="flex flex-col gap-4 sm:gap-6 md:gap-8">
-                        <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-gray-950">Rx+</h2>
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-gray-950">Atidam</h2>
                     </div>
 
                     {/* Navigation Links */}
@@ -81,7 +81,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="flex flex-col sm:flex-row justify-between items-center pt-8 sm:pt-10 md:pt-12 border-t border-gray-100 gap-4 sm:gap-6 md:gap-8">
                     <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 md:gap-8 text-xs sm:text-sm font-semibold text-gray-400 text-center sm:text-left">
-                        <p>© 2024 by Rx+ Pharmacy. All rights reserved</p>
+                        <p>© 2025 by Atidam Pharmaceutical. All rights reserved</p>
                         <span className="hidden sm:inline">/</span>
                         <a href="#" className="hover:text-gray-900 transition-colors">Privacy Policy</a>
                     </div>

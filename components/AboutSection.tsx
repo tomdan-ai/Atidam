@@ -126,7 +126,7 @@ export default function AboutSection() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="min-h-screen py-16 sm:py-20 md:py-28 lg:py-32 bg-white flex flex-col justify-center">
+        <section id="about" ref={sectionRef} className="min-h-screen py-16 sm:py-20 md:py-28 lg:py-32 bg-white flex flex-col justify-center">
             <div className="max-w-[1600px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 w-full">
                 {/* Header with embedded image */}
                 <div className="text-center mb-10 sm:mb-12 md:mb-16">
@@ -137,8 +137,8 @@ export default function AboutSection() {
                         <span>WE PUT</span>
                         <div className="w-16 h-8 sm:w-20 sm:h-10 md:w-24 md:h-12 lg:w-28 lg:h-14 rounded-full overflow-hidden bg-gray-200 inline-flex shadow-lg">
                             <img
-                                src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=200&auto=format&fit=crop"
-                                alt="Pharmacist"
+                                src="/Atidam-building.jpg"
+                                alt="Atidam Building"
                                 className="w-full h-full object-cover"
                             />
                         </div>

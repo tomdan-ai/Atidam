@@ -32,7 +32,7 @@ export default function ContactSection() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="min-h-screen py-16 sm:py-20 md:py-28 lg:py-32 bg-white flex flex-col justify-center border-t border-gray-50">
+        <section id="contact" ref={sectionRef} className="min-h-screen py-16 sm:py-20 md:py-28 lg:py-32 bg-white flex flex-col justify-center border-t border-gray-50">
             <div className="max-w-[1600px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 w-full h-full flex flex-col lg:flex-row gap-10 sm:gap-12 md:gap-16 lg:gap-20 items-start">
 
                 {/* Left Column: Heading and Support Badge */}

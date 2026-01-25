@@ -1,0 +1,16 @@
+import ServicesSection from "@/components/ServicesSection";
+
+export default function WholesalePage() {
+    return (
+        <div className="pt-24 bg-white min-h-screen">
+            <div className="container mx-auto px-6 py-12 text-center">
+                <h1 className="text-4xl md:text-5xl font-black text-gray-950 mb-6">Wholesale Services</h1>
+                <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-12">
+                    Comprehensive pharmaceutical distribution solutions tailored for hospitals,
+                    pharmacies, and healthcare institutions.
+                </p>
+            </div>
+            <ServicesSection />
+        </div>
+    );
+}
