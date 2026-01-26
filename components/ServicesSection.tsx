@@ -82,7 +82,7 @@ export default function ServicesSection() {
                 {/* Header Section */}
                 <div ref={headerRef} className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 sm:gap-8 md:gap-10 lg:gap-12 mb-10 sm:mb-14 md:mb-16 lg:mb-20 animate-item">
                     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-gray-900 max-w-4xl leading-tight">
-                        We offer a wide range of quality medications, health products, and expert advice to support your wellness journey.
+                        Your reliable link to global pharmaceutical brands. We offer high-volume inventory, transparent pricing, and expert regulatory guidance to keep your facility fully stocked.
                     </h2>
 
                     <motion.button

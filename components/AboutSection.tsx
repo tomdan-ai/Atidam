@@ -128,20 +128,25 @@ export default function AboutSection() {
     return (
         <section id="about" ref={sectionRef} className="min-h-screen py-16 sm:py-20 md:py-28 lg:py-32 bg-white flex flex-col justify-center">
             <div className="max-w-[1600px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 w-full">
-                {/* Header with embedded image */}
+                {/* Header with LARGER embedded image */}
                 <div className="text-center mb-10 sm:mb-12 md:mb-16">
-                    <h2
-                        ref={headingRef}
-                        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-gray-300 tracking-wide italic flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mb-6 sm:mb-8 md:mb-12"
-                    >
-                        <span>WE PUT</span>
-                        <div className="w-16 h-8 sm:w-20 sm:h-10 md:w-24 md:h-12 lg:w-28 lg:h-14 rounded-full overflow-hidden bg-gray-200 inline-flex shadow-lg">
+                    {/* Large Featured Image Pill */}
+                    <div className="mb-8 sm:mb-10 md:mb-12 flex justify-center">
+                        <div className="w-48 h-24 sm:w-64 sm:h-32 md:w-80 md:h-40 lg:w-96 lg:h-48 rounded-full overflow-hidden bg-gradient-to-br from-emerald-100 to-emerald-50 shadow-2xl border-4 border-white ring-1 ring-emerald-100/50 transform hover:scale-105 transition-transform duration-500">
                             <img
                                 src="/Atidam-building.jpg"
                                 alt="Atidam Building"
                                 className="w-full h-full object-cover"
                             />
                         </div>
+                    </div>
+
+                    <h2
+                        ref={headingRef}
+                        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-gray-300 tracking-wide italic flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mb-6 sm:mb-8 md:mb-12"
+                    >
+                        <span>WE PUT</span>
+                        <span className="text-emerald-600 font-medium not-italic">❤️</span>
                         <span>YOUR WELLNESS FIRST</span>
                     </h2>
 
@@ -159,7 +164,7 @@ export default function AboutSection() {
                         ref={buttonRef}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="bg-green-400 hover:bg-green-500 text-green-950 px-6 py-3 sm:px-8 sm:py-3.5 md:px-10 md:py-4 rounded-full font-semibold transition-all text-sm sm:text-base shadow-lg"
+                        className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 sm:px-8 sm:py-3.5 md:px-10 md:py-4 rounded-full font-semibold transition-all text-sm sm:text-base shadow-lg"
                     >
                         Learn More
                     </motion.button>
