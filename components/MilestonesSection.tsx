@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import { motion } from "framer-motion";
-import { Award, Trophy, Star, Medal } from "lucide-react";
+import { useRef, useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Award, Trophy, Star, Medal, ArrowRight, Info } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -16,6 +16,7 @@ const milestones = [
         icon: Trophy,
         color: "text-amber-500",
         bg: "bg-amber-100",
+        description: "Awarded for consistent excellence and high-volume performance."
     },
     {
         title: "National Best in Dailyneed",
@@ -24,22 +25,25 @@ const milestones = [
         icon: Star,
         color: "text-blue-500",
         bg: "bg-blue-100",
+        description: "Honored for reliable partnership and supply chain efficiency."
     },
     {
         title: "National Best in May & Baker",
         period: "2024/25 National Forum",
         image: "/cert-of-regcognition.jpg",
         icon: Award,
-        color: "text-green-500",
-        bg: "bg-green-100",
+        color: "text-emerald-500",
+        bg: "bg-emerald-100",
+        description: "Recognized as a top national performer at the annual forum."
     },
     {
         title: "Silver Distributor Award By DrugField",
         period: "2018",
         image: "/silver-award.jpg",
         icon: Medal,
-        color: "text-slate-400",
+        color: "text-slate-500",
         bg: "bg-slate-100",
+        description: "Celebrating our significant growth and industry contribution."
     },
     {
         title: "ISN Southwest Strategic Wholesaler of the Year",
@@ -48,14 +52,16 @@ const milestones = [
         icon: Trophy,
         color: "text-purple-500",
         bg: "bg-purple-100",
+        description: "Strategic partner award for excellence in the Southwest region."
     },
     {
         title: "Outstanding Performance by DrugField",
         period: "2017",
         image: "/outstanding-perf.jpg",
         icon: Star,
-        color: "text-red-500",
-        bg: "bg-red-100",
+        color: "text-rose-500",
+        bg: "bg-rose-100",
+        description: " honored for exceptional sales and business integrity."
     },
 ];
 
@@ -69,24 +75,26 @@ export default function MilestonesSection() {
 
         const ctx = gsap.context(() => {
             gsap.from(headerRef.current, {
-                y: 50,
+                y: 30,
                 opacity: 0,
                 duration: 1,
+                ease: "power3.out",
                 scrollTrigger: {
                     trigger: headerRef.current,
-                    start: "top 80%",
+                    start: "top 85%",
                 },
             });
 
             if (gridRef.current) {
                 gsap.from(gridRef.current.children, {
-                    y: 60,
+                    y: 50,
                     opacity: 0,
                     duration: 0.8,
                     stagger: 0.1,
+                    ease: "power3.out",
                     scrollTrigger: {
                         trigger: gridRef.current,
-                        start: "top 85%",
+                        start: "top 90%",
                     },
                 });
             }
@@ -96,44 +104,104 @@ export default function MilestonesSection() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="py-20 lg:py-32 bg-gray-50 overflow-hidden">
-            <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16">
-                <div ref={headerRef} className="text-center mb-16 max-w-3xl mx-auto">
-                    <span className="text-green-600 font-bold uppercase tracking-widest text-sm mb-4 block">Excellence Recognized</span>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-950 mb-6 tracking-tight">
-                        Our Milestones & Achievements
-                    </h2>
-                    <p className="text-gray-600 text-lg md:text-xl leading-relaxed">
-                        Consistently recognized for our commitment to quality, reliability, and outstanding performance in the pharmaceutical industry.
-                    </p>
+        <section ref={sectionRef} className="py-16 lg:py-24 bg-gray-50 overflow-hidden">
+            <div className="max-w-[1600px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 w-full">
+
+                {/* Header Section */}
+                <div ref={headerRef} className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 sm:gap-8 md:gap-10 lg:gap-12 mb-10 lg:mb-14">
+                    <div className="max-w-4xl">
+                        <span className="text-emerald-600 font-bold uppercase tracking-widest text-xs sm:text-sm mb-3 block">Excellence Recognized</span>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-950 leading-[1.1] tracking-tighter">
+                            Our Awards & <br />
+                            <span className="text-emerald-700">Achievements</span>
+                        </h2>
+                    </div>
+
+                    <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="flex items-center gap-2 sm:gap-3 border border-gray-200 bg-white rounded-full pl-5 pr-1.5 py-1.5 sm:pl-6 sm:pr-2 sm:py-2 lg:pl-8 group hover:border-gray-900 transition-colors self-start lg:self-auto shadow-sm"
+                    >
+                        <span className="text-xs sm:text-sm font-semibold text-gray-900">Our Story</span>
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                            <ArrowRight className="size-3 sm:size-4" />
+                        </div>
+                    </motion.button>
                 </div>
 
+                {/* Flip Cards Grid */}
                 <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                     {milestones.map((item, idx) => (
-                        <motion.div
-                            key={idx}
-                            whileHover={{ y: -5 }}
-                            className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 group"
-                        >
-                            {item.image ? (
-                                <div className="h-48 w-full mb-6 rounded-2xl overflow-hidden relative group-hover:shadow-md transition-shadow">
-                                    <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                                </div>
-                            ) : (
-                                <div className={`w-14 h-14 ${item.bg} ${item.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
-                                    <item.icon className="size-7" />
-                                </div>
-                            )}
-                            <h3 className="text-xl font-bold text-gray-900 mb-2 leading-tight">
-                                {item.title}
-                            </h3>
-                            <p className="text-gray-500 font-medium">
-                                {item.period}
-                            </p>
-                        </motion.div>
+                        <FlipCard key={idx} item={item} />
                     ))}
                 </div>
             </div>
         </section>
+    );
+}
+
+function FlipCard({ item }: { item: typeof milestones[0] }) {
+    const [isFlipped, setIsFlipped] = useState(false);
+
+    return (
+        <div
+            className="group relative h-[300px] sm:h-[350px] w-full perspective-1000 cursor-pointer"
+            onMouseEnter={() => setIsFlipped(true)}
+            onMouseLeave={() => setIsFlipped(false)}
+            onClick={() => setIsFlipped(!isFlipped)}
+        >
+            <motion.div
+                className="w-full h-full relative preserve-3d transition-all duration-500"
+                animate={{ rotateY: isFlipped ? 180 : 0 }}
+                transition={{ duration: 0.6, type: "spring", stiffness: 260, damping: 20 }}
+            >
+                {/* Front Face */}
+                <div className="absolute inset-0 backface-hidden rounded-3xl overflow-hidden shadow-md border border-gray-100 bg-white">
+                    <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
+                    <div className="absolute bottom-6 left-6 right-6">
+                        <div className="flex items-center gap-2 mb-2">
+                            <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                                {item.period}
+                            </span>
+                        </div>
+                        <h3 className="text-white text-xl font-bold leading-tight line-clamp-2">
+                            {item.title}
+                        </h3>
+                        <div className="mt-3 flex items-center justify-end">
+                            <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
+                                <Info className="size-4" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Back Face */}
+                <div
+                    className="absolute inset-0 backface-hidden rounded-3xl overflow-hidden shadow-xl border border-gray-100 bg-white p-8 flex flex-col items-center justify-center text-center rotate-y-180"
+                    style={{ transform: "rotateY(180deg)" }}
+                >
+                    <div className={`w-16 h-16 ${item.bg} ${item.color} rounded-2xl flex items-center justify-center mb-6`}>
+                        <item.icon className="size-8" />
+                    </div>
+
+                    <h3 className="text-gray-900 text-xl sm:text-2xl font-bold leading-tight mb-2">
+                        {item.title}
+                    </h3>
+
+                    <span className="text-emerald-600 font-bold text-sm uppercase tracking-widest mb-4 block">
+                        {item.period}
+                    </span>
+
+                    <p className="text-gray-500 text-sm leading-relaxed">
+                        {item.description}
+                    </p>
+                </div>
+            </motion.div>
+        </div>
     );
 }
