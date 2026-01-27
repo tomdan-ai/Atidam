@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Thermometer, Zap, ShieldCheck } from "lucide-react";
 
@@ -26,7 +26,6 @@ export default function ColdRoomSection() {
                         style={{ y }}
                         className="relative z-10 rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl"
                     >
-                        {/* Placeholder for Cold Room Image - Using a gradient or solid color if image missing, but try to use a nice generic one */}
                         <div className="aspect-[4/5] md:aspect-square bg-gray-900 flex items-center justify-center relative group">
                             <div className="absolute inset-0 bg-[url('/coldroom.jpg')] bg-cover bg-center group-hover:scale-105 transition-transform duration-700" />
                             <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
