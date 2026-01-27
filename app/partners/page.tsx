@@ -1,4 +1,4 @@
-import PartnersSection from "@/components/PartnersSection";
+import PartnersGrid from "@/components/PartnersGrid";
 
 export default function PartnersPage() {
     return (
@@ -10,7 +10,7 @@ export default function PartnersPage() {
                     high-quality distribution and service.
                 </p>
             </div>
-            <PartnersSection />
+            <PartnersGrid />
         </div>
     );
 }
