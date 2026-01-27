@@ -8,77 +8,95 @@ export default function CommunitySection() {
         <section id="community" className="py-24 bg-white relative overflow-hidden">
             {/* Decorative Elements */}
             <div className="absolute top-0 left-0 w-64 h-64 bg-green-100 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2" />
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-100 rounded-full blur-[120px] translate-x-1/2 translate-y-1/2 opacity-50" />
 
-            <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16">
-                <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
+            <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
+                <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
 
                     <div className="lg:w-1/2">
-                        <span className="inline-block text-green-600 font-bold tracking-widest uppercase text-sm mb-4">Community Impact</span>
-                        <h2 className="text-4xl md:text-5xl font-black text-gray-950 mb-8 leading-tight">
-                            Empowering Youth, <br />
-                            Supporting Society.
-                        </h2>
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                        >
+                            <span className="inline-block text-green-600 font-bold tracking-widest uppercase text-sm mb-4">Community Impact</span>
+                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-950 mb-8 leading-tight">
+                                Empowering Youth, <br />
+                                Supporting Society.
+                            </h2>
 
-                        <div className="prose prose-lg text-gray-600 mb-8">
-                            <p>
-                                Beyond its role as a leading wholesale pharmaceutical outlet, Atidam Pharmacy has remained deeply committed to supporting society and empowering the youth.
-                            </p>
-                            <p>
-                                For the past <span className="text-gray-900 font-bold">eight years</span>, we have consistently demonstrated this commitment through our sponsorship of the Inter-House Competition at <span className="text-gray-900 font-bold">New Oko-Oba Primary School</span>.
-                            </p>
-                        </div>
-
-                        <div className="bg-green-50 rounded-2xl p-8 border border-green-100 relative overflow-hidden">
-                            <div className="relative z-10">
-                                <div className="flex items-center gap-3 mb-4 text-green-700">
-                                    <TrophyIcon className="size-6" />
-                                    <span className="font-bold uppercase tracking-widest text-xs">Latest Achievement</span>
-                                </div>
-                                <h3 className="text-2xl font-bold text-gray-900 mb-2">2025 Inter-House Competition</h3>
-                                <p className="text-gray-600 mb-4">
-                                    Proud sponsors of <span className="font-bold text-blue-600">Atidam House (Blue House)</span>, emerging in <span className="font-bold text-gray-900">First Position</span>.
+                            <div className="prose prose-lg text-gray-600 mb-10 max-w-xl">
+                                <p className="leading-relaxed">
+                                    Beyond its role as a leading wholesale pharmaceutical outlet, Atidam Pharmacy has remained deeply committed to supporting society and empowering the youth.
                                 </p>
-                                <div className="inline-flex items-center gap-2 text-sm font-semibold text-green-700 bg-white px-4 py-2 rounded-full shadow-sm">
-                                    <Calendar className="size-4" />
-                                    <span>2025 Edition</span>
-                                </div>
+                                <p className="leading-relaxed">
+                                    For the past <span className="text-gray-900 font-bold underline decoration-green-500 decoration-2 underline-offset-4">eight years</span>, we have consistently demonstrated this commitment through our sponsorship of the Inter-House Competition at <span className="text-gray-900 font-bold">New Oko-Oba Primary School</span>.
+                                </p>
                             </div>
 
-                            {/* Decorative Pattern */}
-                            <div className="absolute right-0 bottom-0 opacity-10">
-                                <svg className="w-40 h-40 text-green-500" viewBox="0 0 200 200" fill="currentColor">
-                                    <path d="M45,-76C58.3,-69.3,69.4,-59.6,78.2,-48.2C87,-36.8,93.5,-23.7,93.1,-10.8C92.7,2.1,85.4,14.9,76.5,26.4C67.6,37.9,57.1,48.1,45.4,56.6C33.7,65.1,20.8,71.9,7.4,72.9C-6,73.9,-19.9,69.1,-32.3,61.8C-44.7,54.5,-55.6,44.7,-64.3,33.1C-73,21.5,-79.5,8.1,-80.1,-5.6C-80.7,-19.3,-75.4,-33.3,-66.1,-44.6C-56.8,-55.9,-43.5,-64.5,-30.5,-71.4C-17.5,-78.3,-4.8,-83.5,4.7,-89.9L14.2,-96.4" transform="translate(100 100)" />
-                                </svg>
+                            <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-xl shadow-gray-100/50 relative overflow-hidden group">
+                                <div className="relative z-10">
+                                    <div className="flex items-center gap-3 mb-6 text-green-600">
+                                        <div className="p-2 bg-green-50 rounded-lg">
+                                            <TrophyIcon className="size-6" />
+                                        </div>
+                                        <span className="font-bold uppercase tracking-widest text-[10px]">Latest Achievement</span>
+                                    </div>
+                                    <h3 className="text-2xl font-bold text-gray-900 mb-3">2025 Inter-House Competition</h3>
+                                    <p className="text-gray-600 mb-6 leading-relaxed">
+                                        Proud sponsors of <span className="font-bold text-blue-600">Atidam House (Blue House)</span>, emerging in <span className="font-bold text-gray-900">First Position</span>.
+                                    </p>
+                                    <div className="inline-flex items-center gap-2 text-xs font-bold text-green-700 bg-green-50 px-5 py-2.5 rounded-full ring-1 ring-green-100">
+                                        <Calendar className="size-4" />
+                                        <span>2025 EDITION</span>
+                                    </div>
+                                </div>
+
+                                {/* Background Pattern */}
+                                <div className="absolute -right-8 -bottom-8 opacity-[0.03] group-hover:opacity-[0.05] transition-opacity duration-500">
+                                    <TrophyIcon className="size-48 rotate-12" />
+                                </div>
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
 
                     <div className="lg:w-1/2 w-full">
-                        <div className="grid grid-cols-2 gap-4 md:gap-6">
-                            <motion.div
-                                whileHover={{ y: -5 }}
-                                className="bg-blue-50 p-6 md:p-8 rounded-2xl md:rounded-3xl flex flex-col items-center text-center justify-center gap-4 h-full min-h-[200px]"
-                            >
-                                <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">
-                                    <Users className="size-8" />
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-gray-900 text-lg">Youth Empowerment</h4>
-                                </div>
-                            </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1, delay: 0.2 }}
+                            className="relative group"
+                        >
+                            {/* Video Container with Premium Styling */}
+                            <div className="relative aspect-[9/16] md:aspect-video lg:aspect-[4/5] xl:aspect-video rounded-[2rem] overflow-hidden shadow-2xl shadow-gray-200 ring-1 ring-gray-900/5">
+                                <video
+                                    src="/IMG_0978.MP4"
+                                    className="w-full h-full object-cover"
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                />
+                                {/* Overlay Gradient */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            </div>
 
-                            <motion.div
-                                whileHover={{ y: -5 }}
-                                className="bg-red-50 p-6 md:p-8 rounded-2xl md:rounded-3xl flex flex-col items-center text-center justify-center gap-4 h-full min-h-[200px] mt-8"
-                            >
-                                <div className="w-16 h-16 bg-red-100 text-red-600 rounded-full flex items-center justify-center">
-                                    <Heart className="size-8" />
+                            {/* Floating Stats or Tags */}
+                            <div className="absolute -bottom-6 -left-6 md:bottom-10 md:-left-10 bg-white p-6 rounded-2xl shadow-2xl border border-gray-50 flex items-center gap-4 animate-bounce-slow">
+                                <div className="size-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center">
+                                    <Users className="size-6" />
                                 </div>
                                 <div>
-                                    <h4 className="font-bold text-gray-900 text-lg">Community Support</h4>
+                                    <div className="text-sm font-black text-gray-900 leading-none">Yielding Impact</div>
+                                    <div className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-1">Community Support</div>
                                 </div>
-                            </motion.div>
-                        </div>
+                            </div>
+
+                            {/* Decorative Accent */}
+                            <div className="absolute -top-6 -right-6 size-32 bg-green-400/10 rounded-full blur-2xl -z-10" />
+                        </motion.div>
                     </div>
                 </div>
             </div>
