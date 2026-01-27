@@ -8,7 +8,7 @@ import PartnersSection from "@/components/PartnersSection";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white text-black font-sans selection:bg-green-200">
+    <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white font-sans selection:bg-green-200">
       <Hero />
       <PartnersSection />
       <AboutSection />
