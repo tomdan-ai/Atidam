@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import AboutSection from "@/components/AboutSection";
+import ColdRoomTeaser from "@/components/ColdRoomTeaser";
 import MilestonesSection from "@/components/MilestonesSection";
 
 import TestimonialsSection from "@/components/TestimonialsSection";
@@ -12,6 +13,7 @@ export default function Home() {
       <Hero />
       <PartnersSection />
       <AboutSection />
+      <ColdRoomTeaser />
       <MilestonesSection />
 
       <TestimonialsSection />

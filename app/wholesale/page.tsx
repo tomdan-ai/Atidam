@@ -1,4 +1,5 @@
 import ServicesSection from "@/components/ServicesSection";
+import ColdRoomSection from "@/components/ColdRoomSection";
 
 export default function WholesalePage() {
     return (
@@ -11,6 +12,7 @@ export default function WholesalePage() {
                 </p>
             </div>
             <ServicesSection />
+            <ColdRoomSection />
         </div>
     );
 }
