@@ -53,7 +53,7 @@ export default function Footer() {
                             <h4 className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-gray-400">Contacts</h4>
                             <ul className="flex flex-col gap-2 sm:gap-3 md:gap-4">
                                 <li><a href="tel:8085550111" className="text-gray-950 font-bold hover:text-green-600 transition-colors text-[11px] sm:text-[12px] md:text-[13px] tracking-wide">(808) 555-0111</a></li>
-                                <li><a href="mailto:RxPlusPharmacy@gmail.com" className="text-gray-950 font-bold hover:text-green-600 transition-colors text-[11px] sm:text-[12px] md:text-[13px] tracking-wide break-all">RxPlusPharmacy@gmail.com</a></li>
+                                <li><a href="mailto:info@atidam.com" className="text-gray-950 font-bold hover:text-green-600 transition-colors text-[11px] sm:text-[12px] md:text-[13px] tracking-wide break-all">info@atidam.com</a></li>
                                 <li className="text-gray-400 font-bold text-[11px] sm:text-[12px] md:text-[13px] tracking-wide">775 Rolling Green Rd</li>
                             </ul>
                         </div>
