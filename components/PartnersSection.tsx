@@ -45,11 +45,6 @@ export default function PartnersSection() {
 
     // Infinite Scroll Logic
     useEffect(() => {
-        // We need to target the actual scrolling element.
-        // If ReactLenis renders a div, the ref should point to it or its wrapper.
-        // We'll verify this. If ReactLenis uses content-wrapper pattern, we might need adjustments.
-        // For now, let's assume scrollContainerRef attaches to the scrollable div.
-
         const container = scrollContainerRef.current;
         if (!container) return;
 
@@ -58,8 +53,6 @@ export default function PartnersSection() {
 
         const scroll = () => {
             if (!isPaused && container) {
-                // Determine the scroll speed (pixels per frame)
-                // Increased to 3.6 to match the requested 10s speed exactly
                 container.scrollLeft += 3.6;
 
                 if (container.scrollLeft >= container.scrollWidth / 2) {
@@ -71,8 +64,6 @@ export default function PartnersSection() {
 
         animationFrameId = requestAnimationFrame(scroll);
 
-        // Pause ONLY on touch interaction for better mobile UX (swiping)
-        // Removed mouseenter/mouseleave pause so it continues sliding on hover as requested
         const pause = () => isPaused = true;
         const resume = () => isPaused = false;
 
@@ -87,9 +78,9 @@ export default function PartnersSection() {
     }, []);
 
     return (
-        <section id="partners" ref={sectionRef} className="py-20 bg-white border-y border-gray-100 overflow-hidden">
+        <section id="partners" ref={sectionRef} className="py-20 bg-white dark:bg-black border-y border-gray-100 dark:border-gray-900 overflow-hidden">
             <div className="max-w-[1600px] mx-auto px-6 mb-16 text-center" ref={titleRef}>
-                <p className="text-gray-500 font-bold uppercase tracking-widest text-sm">Trusted by Industry Leaders</p>
+                <p className="text-gray-500 dark:text-gray-400 font-bold uppercase tracking-widest text-sm">Trusted by Industry Leaders</p>
             </div>
 
             {/* Scrolling Container with Lenis */}
@@ -101,9 +92,9 @@ export default function PartnersSection() {
                         smoothWheel: true,
                         wheelMultiplier: 1,
                         touchMultiplier: 2,
-                        infinite: false // We handle infinite manually via reset
+                        infinite: false
                     }}
-                    className="flex gap-16 md:gap-24 items-end overflow-x-auto no-scrollbar scroll-smooth" // added scroll-smooth just in case
+                    className="flex gap-16 md:gap-24 items-end overflow-x-auto no-scrollbar scroll-smooth"
                     style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                 >
                     <div
@@ -116,10 +107,10 @@ export default function PartnersSection() {
                                     <img
                                         src={partner.logo}
                                         alt={partner.name}
-                                        className="max-h-full max-w-[160px] object-contain transition-all duration-300 pointer-events-none"
+                                        className="max-h-full max-w-[160px] object-contain transition-all duration-300 pointer-events-none dark:brightness-0 dark:invert dark:opacity-70"
                                     />
                                 </div>
-                                <span className="text-[10px] font-medium text-gray-400 uppercase tracking-wider text-center max-w-[150px] whitespace-normal">
+                                <span className="text-[10px] font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wider text-center max-w-[150px] whitespace-normal">
                                     {partner.name}
                                 </span>
                             </div>
@@ -128,8 +119,8 @@ export default function PartnersSection() {
                 </ReactLenis>
 
                 {/* Gradient Masks */}
-                <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent pointer-events-none z-10" />
-                <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent pointer-events-none z-10" />
+                <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white dark:from-gray-950 to-transparent pointer-events-none z-10" />
+                <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white dark:from-gray-950 to-transparent pointer-events-none z-10" />
             </div>
 
             <style jsx global>{`
