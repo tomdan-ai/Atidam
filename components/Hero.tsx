@@ -36,12 +36,12 @@ export default function Hero() {
         >
             {/* Background Image with Blur */}
             <div
-                className="absolute inset-0 bg-cover bg-[center_top] sm:bg-center bg-no-repeat scale-105 sm:scale-110 hero-bg blur-sm transition-transform duration-1000"
+                className="absolute inset-0 bg-cover bg-[center_top] sm:bg-center bg-no-repeat scale-105 sm:scale-110 hero-bg blur-[1px] transition-transform duration-1000"
                 style={{ backgroundImage: 'url(/reception.jpg)' }}
             />
 
-            {/* Premium Gradient Overlay for Readability */}
-            <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-white/10 sm:from-white/90 sm:via-white/50 sm:to-transparent" />
+            {/* Premium Gradient Overlay for Readability - Light Mode */}
+            <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-white/10 sm:from-white/90 sm:via-white/50 sm:to-transparent dark:from-gray-950/95 dark:via-gray-950/70 dark:to-gray-950/10 sm:dark:from-gray-950/90 sm:dark:via-gray-950/50 sm:dark:to-transparent" />
 
             <div ref={contentRef} className="max-w-[1600px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 min-h-screen relative z-10">
                 <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-start lg:items-center min-h-screen justify-center lg:justify-start">
@@ -50,12 +50,12 @@ export default function Hero() {
 
                         {/* Heading */}
                         <div className="overflow-hidden">
-                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[6rem] font-black tracking-tighter text-slate-900 leading-[1.05] animate-item">
+                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[6rem] font-black tracking-tighter text-slate-900 dark:text-white leading-[1.05] animate-item">
                                 Leading <br />
-                                <span className="text-emerald-700">Wholesale</span> & <br />
+                                <span className="text-emerald-700 dark:text-emerald-400">Wholesale</span> & <br />
                                 Retail Pharmacy
                             </h1>
-                            <p className="text-lg sm:text-xl text-slate-600 max-w-lg font-medium">
+                            <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-lg font-medium">
                                 Your trusted partner for pharmaceutical distribution and retail healthcare solutions.
                             </p>
                         </div>
@@ -64,7 +64,7 @@ export default function Hero() {
                         <motion.button
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            className="bg-emerald-700 hover:bg-emerald-800 text-white px-8 py-4 sm:px-10 sm:py-5 rounded-full font-bold transition-all text-base sm:text-lg md:text-xl shadow-xl hover:shadow-emerald-900/20 animate-item"
+                            className="bg-emerald-700 hover:bg-emerald-800 dark:bg-emerald-600 dark:hover:bg-emerald-700 text-white px-8 py-4 sm:px-10 sm:py-5 rounded-full font-bold transition-all text-base sm:text-lg md:text-xl shadow-xl hover:shadow-emerald-900/20 animate-item"
                         >
                             Partner with Us
                         </motion.button>
@@ -73,7 +73,7 @@ export default function Hero() {
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-10 md:gap-16 lg:gap-20 mt-4 sm:mt-8 md:mt-12 animate-item">
                             <div className="group cursor-pointer">
                                 <div className="flex items-center gap-2 mb-1 sm:mb-2">
-                                    <span className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-950">4.9</span>
+                                    <span className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-950 dark:text-white">4.9</span>
                                 </div>
                                 <div className="flex gap-0.5 sm:gap-1 text-yellow-500">
                                     {[1, 2, 3, 4, 5].map((_, i) => (
@@ -84,9 +84,9 @@ export default function Hero() {
                                 </div>
                             </div>
 
-                            <div className="border-l-0 sm:border-l-4 border-gray-200 pl-0 sm:pl-10 md:pl-16 lg:pl-20 pt-4 sm:pt-0 border-t-4 sm:border-t-0">
-                                <div className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-950 mb-1 sm:mb-2">8+</div>
-                                <p className="text-xs sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.2em] font-black text-gray-400">Years of Excellence</p>
+                            <div className="border-l-0 sm:border-l-4 border-gray-200 dark:border-gray-700 pl-0 sm:pl-10 md:pl-16 lg:pl-20 pt-4 sm:pt-0 border-t-4 sm:border-t-0">
+                                <div className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-950 dark:text-white mb-1 sm:mb-2">8+</div>
+                                <p className="text-xs sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.2em] font-black text-gray-400 dark:text-gray-500">Years of Excellence</p>
                             </div>
                         </div>
 
