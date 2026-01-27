@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 };
 
 import SmoothScroll from "@/components/SmoothScroll";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -28,15 +29,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <SmoothScroll>
-          <Navbar />
-          {children}
-          <Footer />
-        </SmoothScroll>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange={false}
+        >
+          <SmoothScroll>
+            <Navbar />
+            {children}
+            <Footer />
+          </SmoothScroll>
+        </ThemeProvider>
       </body>
     </html>
   );
