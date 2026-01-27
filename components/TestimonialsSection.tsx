@@ -13,14 +13,14 @@ const testimonials = [
         name: "Ralph Edwards",
         role: "Customer",
         avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Ralph",
-        text: "The team at Rx+ Pharmacy exceeded all my expectations. From the moment I walked in, I was treated with kindness and professionalism. Every prescription was handled with care, and I felt truly valued as a customer.",
+        text: "The team at Atidam Pharmaceuticals exceeded all my expectations. From the moment I walked in, I was treated with kindness and professionalism. Every prescription was handled with care, and I felt truly valued as a customer.",
         rating: 4.6,
     },
     {
         name: "Brooklyn Simmons",
         role: "Customer",
         avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Brooklyn",
-        text: "I couldn't be more grateful for the service I received at Rx+ Pharmacy. The pharmacists were attentive, professional, and genuinely helpful. From filling my prescriptions to answering my questions about supplements, I felt confident I was in good hands. Highly recommend to anyone looking for a reliable pharmacy!",
+        text: "I couldn't be more grateful for the service I received at Atidam Pharmaceuticals. The pharmacists were attentive, professional, and genuinely helpful. From filling my prescriptions to answering my questions about supplements, I felt confident I was in good hands. Highly recommend to anyone looking for a reliable pharmacy!",
         rating: 4.9,
     },
 ];
