@@ -7,6 +7,33 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const teamMembers = [
+    {
+        name: "Dr. Adebayo Atidam",
+        role: "Chief Executive Officer",
+        portfolio: "MBA in Healthcare Management | 25+ years in pharmaceutical distribution | Former Director at Nigerian Pharmaceutical Council",
+        image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop",
+    },
+    {
+        name: "Pharm. Chioma Okonkwo",
+        role: "Chief Pharmacist",
+        portfolio: "Doctor of Pharmacy (PharmD) | Certified Healthcare Quality Professional | 18 years clinical experience",
+        image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=400&auto=format&fit=crop",
+    },
+    {
+        name: "Mr. Emeka Nwosu",
+        role: "Director of Operations",
+        portfolio: "BSc. Supply Chain Management | Cold Chain Logistics Specialist | 15+ years in pharmaceutical logistics",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop",
+    },
+    {
+        name: "Mrs. Folake Adeyemi",
+        role: "Head of Quality Assurance",
+        portfolio: "MSc. Pharmaceutical Chemistry | WHO-GMP Certified Auditor | 12 years in quality control",
+        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop",
+    },
+];
+
 const stats = [
     {
         number: "10K+",
@@ -58,7 +85,7 @@ export default function AboutSection() {
     const sectionRef = useRef<HTMLElement>(null);
     const headingRef = useRef<HTMLHeadingElement>(null);
     const paragraphRef = useRef<HTMLParagraphElement>(null);
-    const buttonRef = useRef<HTMLButtonElement>(null);
+    const teamRef = useRef<HTMLDivElement>(null);
     const cardsRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -91,18 +118,20 @@ export default function AboutSection() {
                 },
             });
 
-            gsap.from(buttonRef.current, {
-                y: 40,
-                opacity: 0,
-                duration: 1,
-                ease: "power3.inOut",
-                scrollTrigger: {
-                    trigger: buttonRef.current,
-                    start: "top 90%",
-                    end: "top 60%",
-                    toggleActions: "play none none reverse",
-                },
-            });
+            if (teamRef.current) {
+                const members = teamRef.current.querySelectorAll(".team-member");
+                gsap.from(members, {
+                    y: 60,
+                    opacity: 0,
+                    duration: 1,
+                    stagger: 0.15,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: teamRef.current,
+                        start: "top 80%",
+                    },
+                });
+            }
 
             if (cardsRef.current) {
                 const cards = cardsRef.current.querySelectorAll(".stat-card");
@@ -128,50 +157,66 @@ export default function AboutSection() {
     return (
         <section id="about" ref={sectionRef} className="min-h-screen py-16 sm:py-20 md:py-28 lg:py-32 bg-white flex flex-col justify-center">
             <div className="max-w-[1600px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 w-full">
-                {/* Header with LARGER embedded image */}
-                <div className="text-center mb-10 sm:mb-12 md:mb-16">
-                    {/* Large Featured Image Pill */}
-                    <div className="mb-8 sm:mb-10 md:mb-12 flex justify-center">
-                        <div className="w-48 h-24 sm:w-64 sm:h-32 md:w-80 md:h-40 lg:w-96 lg:h-48 rounded-full overflow-hidden bg-gradient-to-br from-emerald-100 to-emerald-50 shadow-2xl border-4 border-white ring-1 ring-emerald-100/50 transform hover:scale-105 transition-transform duration-500">
-                            <img
-                                src="/Atidam-building.jpg"
-                                alt="Atidam Building"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-                    </div>
-
+                {/* Header Section */}
+                <div className="text-center mb-12 sm:mb-16 md:mb-20">
                     <h2
                         ref={headingRef}
                         className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-gray-300 tracking-wide italic flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mb-6 sm:mb-8 md:mb-12"
                     >
-                        <span>WE PUT</span>
-                        <span className="text-emerald-600 font-medium not-italic">❤️</span>
-                        <span>YOUR WELLNESS FIRST</span>
+                        <span>MEET OUR</span>
+                        <span className="text-emerald-600 font-medium not-italic">LEADERSHIP</span>
+                        <span>TEAM</span>
                     </h2>
 
                     <p
                         ref={paragraphRef}
-                        className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed mb-6 sm:mb-8 md:mb-10 px-4 sm:px-0"
+                        className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed px-4 sm:px-0"
                     >
-                        Our pharmacy offers a complete range of prescription medications,
-                        over-the-counter products, and health consultations.
-                        With expert pharmacists on staff, we aim to provide personalized
-                        care in a friendly and accessible environment.
+                        Our experienced team of healthcare professionals and business leaders
+                        are dedicated to ensuring the highest standards of pharmaceutical
+                        distribution and customer care.
                     </p>
+                </div>
 
-                    <motion.button
-                        ref={buttonRef}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 sm:px-8 sm:py-3.5 md:px-10 md:py-4 rounded-full font-semibold transition-all text-sm sm:text-base shadow-lg"
-                    >
-                        Learn More
-                    </motion.button>
+                {/* Team Members Grid */}
+                <div ref={teamRef} className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10 mb-16 sm:mb-20 md:mb-24">
+                    {teamMembers.map((member, index) => (
+                        <motion.div
+                            key={index}
+                            whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeInOut" } }}
+                            className="team-member flex flex-col items-center text-center group"
+                        >
+                            {/* Circular Image */}
+                            <div className="relative mb-4 sm:mb-6">
+                                <div className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-48 lg:h-48 rounded-full overflow-hidden bg-gradient-to-br from-emerald-100 to-emerald-50 shadow-xl ring-4 ring-white group-hover:ring-emerald-100 transition-all duration-500">
+                                    <img
+                                        src={member.image}
+                                        alt={member.name}
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    />
+                                </div>
+                                {/* Decorative ring */}
+                                <div className="absolute inset-0 rounded-full border-2 border-dashed border-emerald-200 opacity-0 group-hover:opacity-100 scale-110 group-hover:scale-125 transition-all duration-500" />
+                            </div>
+
+                            {/* Name and Role */}
+                            <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-gray-900 mb-1 sm:mb-2 group-hover:text-emerald-600 transition-colors">
+                                {member.name}
+                            </h3>
+                            <p className="text-emerald-600 font-semibold text-xs sm:text-sm mb-2 sm:mb-3">
+                                {member.role}
+                            </p>
+
+                            {/* Portfolio in fine print */}
+                            <p className="text-gray-400 text-[10px] sm:text-xs leading-relaxed max-w-[200px] sm:max-w-[220px] md:max-w-[240px]">
+                                {member.portfolio}
+                            </p>
+                        </motion.div>
+                    ))}
                 </div>
 
                 {/* Stats Cards */}
-                <div ref={cardsRef} className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mt-10 sm:mt-14 md:mt-16 lg:mt-20">
+                <div ref={cardsRef} className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
                     {stats.map((stat, index) => (
                         <motion.div
                             key={index}
