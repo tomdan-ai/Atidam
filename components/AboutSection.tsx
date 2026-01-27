@@ -43,8 +43,8 @@ const stats = [
             </svg>
         ),
         description: "Thousands of happy customers who trust us for their prescriptions.",
-        bgColor: "bg-green-100",
-        iconColor: "text-green-600",
+        bgColor: "bg-green-100 dark:bg-green-900/30",
+        iconColor: "text-green-600 dark:text-green-400",
     },
     {
         number: "70+",
@@ -54,8 +54,8 @@ const stats = [
             </svg>
         ),
         description: "Licensed pharmacists ready to serve you.",
-        bgColor: "bg-gray-100",
-        iconColor: "text-gray-600",
+        bgColor: "bg-gray-100 dark:bg-gray-800",
+        iconColor: "text-gray-600 dark:text-gray-400",
     },
     {
         number: "30+",
@@ -65,8 +65,8 @@ const stats = [
             </svg>
         ),
         description: "Years of trusted pharmacy service in your community.",
-        bgColor: "bg-orange-100",
-        iconColor: "text-orange-600",
+        bgColor: "bg-orange-100 dark:bg-orange-900/30",
+        iconColor: "text-orange-600 dark:text-orange-400",
     },
     {
         number: "5K+",
@@ -76,8 +76,8 @@ const stats = [
             </svg>
         ),
         description: "Medicines and health products available in stock.",
-        bgColor: "bg-cyan-100",
-        iconColor: "text-cyan-600",
+        bgColor: "bg-cyan-100 dark:bg-cyan-900/30",
+        iconColor: "text-cyan-600 dark:text-cyan-400",
     },
 ];
 
@@ -155,22 +155,22 @@ export default function AboutSection() {
     }, []);
 
     return (
-        <section id="about" ref={sectionRef} className="min-h-screen py-16 sm:py-20 md:py-28 lg:py-32 bg-white flex flex-col justify-center">
+        <section id="about" ref={sectionRef} className="min-h-screen py-16 sm:py-20 md:py-28 lg:py-32 bg-white dark:bg-black flex flex-col justify-center">
             <div className="max-w-[1600px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 w-full">
                 {/* Header Section */}
                 <div className="text-center mb-12 sm:mb-16 md:mb-20">
                     <h2
                         ref={headingRef}
-                        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-gray-300 tracking-wide italic flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mb-6 sm:mb-8 md:mb-12"
+                        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-gray-300 dark:text-gray-600 tracking-wide italic flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mb-6 sm:mb-8 md:mb-12"
                     >
                         <span>MEET OUR</span>
-                        <span className="text-emerald-600 font-medium not-italic">LEADERSHIP</span>
+                        <span className="text-emerald-600 dark:text-emerald-400 font-medium not-italic">LEADERSHIP</span>
                         <span>TEAM</span>
                     </h2>
 
                     <p
                         ref={paragraphRef}
-                        className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed px-4 sm:px-0"
+                        className="text-gray-600 dark:text-gray-400 text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed px-4 sm:px-0"
                     >
                         Our experienced team of healthcare professionals and business leaders
                         are dedicated to ensuring the highest standards of pharmaceutical
@@ -188,7 +188,7 @@ export default function AboutSection() {
                         >
                             {/* Circular Image */}
                             <div className="relative mb-4 sm:mb-6">
-                                <div className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-48 lg:h-48 rounded-full overflow-hidden bg-gradient-to-br from-emerald-100 to-emerald-50 shadow-xl ring-4 ring-white group-hover:ring-emerald-100 transition-all duration-500">
+                                <div className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-48 lg:h-48 rounded-full overflow-hidden bg-gradient-to-br from-emerald-100 to-emerald-50 dark:from-emerald-900/30 dark:to-emerald-800/20 shadow-xl ring-4 ring-white dark:ring-gray-800 group-hover:ring-emerald-100 dark:group-hover:ring-emerald-800/50 transition-all duration-500">
                                     <img
                                         src={member.image}
                                         alt={member.name}
@@ -196,19 +196,19 @@ export default function AboutSection() {
                                     />
                                 </div>
                                 {/* Decorative ring */}
-                                <div className="absolute inset-0 rounded-full border-2 border-dashed border-emerald-200 opacity-0 group-hover:opacity-100 scale-110 group-hover:scale-125 transition-all duration-500" />
+                                <div className="absolute inset-0 rounded-full border-2 border-dashed border-emerald-200 dark:border-emerald-700 opacity-0 group-hover:opacity-100 scale-110 group-hover:scale-125 transition-all duration-500" />
                             </div>
 
                             {/* Name and Role */}
-                            <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-gray-900 mb-1 sm:mb-2 group-hover:text-emerald-600 transition-colors">
+                            <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-gray-900 dark:text-white mb-1 sm:mb-2 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                                 {member.name}
                             </h3>
-                            <p className="text-emerald-600 font-semibold text-xs sm:text-sm mb-2 sm:mb-3">
+                            <p className="text-emerald-600 dark:text-emerald-400 font-semibold text-xs sm:text-sm mb-2 sm:mb-3">
                                 {member.role}
                             </p>
 
                             {/* Portfolio in fine print */}
-                            <p className="text-gray-400 text-[10px] sm:text-xs leading-relaxed max-w-[200px] sm:max-w-[220px] md:max-w-[240px]">
+                            <p className="text-gray-400 dark:text-gray-500 text-[10px] sm:text-xs leading-relaxed max-w-[200px] sm:max-w-[220px] md:max-w-[240px]">
                                 {member.portfolio}
                             </p>
                         </motion.div>
@@ -223,14 +223,14 @@ export default function AboutSection() {
                             whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeInOut" } }}
                             className={`stat-card ${stat.bgColor} rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 lg:p-10 flex flex-col justify-between min-h-[180px] sm:min-h-[220px] md:min-h-[280px] lg:min-h-[320px] shadow-sm hover:shadow-xl transition-shadow duration-500`}
                         >
-                            <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900">
+                            <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 dark:text-white">
                                 {stat.number}
                             </div>
                             <div>
                                 <div className={`${stat.iconColor} mb-2 sm:mb-3 md:mb-4`}>
                                     {stat.icon}
                                 </div>
-                                <p className="text-[11px] sm:text-xs md:text-sm text-gray-600 leading-relaxed">
+                                <p className="text-[11px] sm:text-xs md:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                                     {stat.description}
                                 </p>
                             </div>
