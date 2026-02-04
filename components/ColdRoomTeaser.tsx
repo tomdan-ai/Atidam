@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Thermometer, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
@@ -11,13 +10,7 @@ export default function ColdRoomTeaser() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-green-500/5 dark:bg-green-500/10 blur-[100px] rounded-full pointer-events-none" />
 
             <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.6 }}
-                    className="flex flex-col md:flex-row items-center gap-8 md:gap-12 p-8 md:p-12 rounded-3xl bg-white/60 dark:bg-white/5 backdrop-blur-xl border border-gray-200/50 dark:border-white/10 shadow-xl dark:shadow-2xl"
-                >
+                <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 p-8 md:p-12 rounded-3xl bg-white/60 dark:bg-white/5 backdrop-blur-xl border border-gray-200/50 dark:border-white/10 shadow-xl dark:shadow-2xl">
                     {/* Icon */}
                     <div className="flex-shrink-0">
                         <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center shadow-lg shadow-green-500/25">
@@ -38,16 +31,12 @@ export default function ColdRoomTeaser() {
 
                     {/* CTA Button */}
                     <Link href="/wholesale#cold-room" className="flex-shrink-0">
-                        <motion.div
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.98 }}
-                            className="group flex items-center gap-3 px-6 py-4 md:px-8 md:py-5 rounded-2xl bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 text-white font-semibold text-base md:text-lg shadow-lg shadow-green-600/25 transition-all duration-300"
-                        >
+                        <div className="group flex items-center gap-3 px-6 py-4 md:px-8 md:py-5 rounded-2xl bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 text-white font-semibold text-base md:text-lg shadow-lg shadow-green-600/25 transition-all duration-300 hover:scale-105 active:scale-98">
                             Learn More
                             <ArrowRight className="size-5 group-hover:translate-x-1 transition-transform duration-300" />
-                        </motion.div>
+                        </div>
                     </Link>
-                </motion.div>
+                </div>
             </div>
         </section>
     );
