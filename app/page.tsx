@@ -2,6 +2,8 @@ import Hero from "@/components/Hero";
 import AboutSection from "@/components/AboutSection";
 import ColdRoomTeaser from "@/components/ColdRoomTeaser";
 import MilestonesSection from "@/components/MilestonesSection";
+import BenefitsSection from "@/components/BenefitsSection";
+import ValuePropositionSection from "@/components/ValuePropositionSection";
 
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
@@ -12,6 +14,8 @@ export default function Home() {
     <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white font-sans selection:bg-green-200">
       <Hero />
       <PartnersSection />
+      <BenefitsSection />
+      <ValuePropositionSection />
       <AboutSection />
       <ColdRoomTeaser />
       <MilestonesSection />
