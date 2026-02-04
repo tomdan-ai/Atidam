@@ -51,9 +51,9 @@ export default function Hero() {
                         {/* Heading */}
                         <div className="overflow-hidden">
                             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[6rem] font-black tracking-tighter text-slate-900 dark:text-white leading-[1.05] animate-item">
-                                Leading <br />
-                                <span className="text-emerald-700 dark:text-emerald-400">Wholesale</span> & <br />
-                                Retail Pharmacy
+                                Leading the Future of <br />
+                                <span className="text-emerald-700 dark:text-emerald-400">Wholesale</span> Pharmaceutical <br />
+                                Procurement.
                             </h1>
                             <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-lg font-medium">
                                 Your trusted source for wholesale Pharmaceutical distribution to Pharmacies hospitals and healthcare providers.
