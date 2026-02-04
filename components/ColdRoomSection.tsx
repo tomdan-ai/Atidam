@@ -1,7 +1,5 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
 import { Thermometer, Zap, ShieldCheck, Activity, Snowflake } from "lucide-react";
 
 const features = [
@@ -55,14 +53,6 @@ const colorMap: Record<string, { bg: string; text: string; border: string }> = {
 };
 
 export default function ColdRoomSection() {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start end", "end start"],
-    });
-
-    const y = useTransform(scrollYProgress, [0, 1], [60, -60]);
-
     return (
         <section
             id="cold-room"
@@ -72,32 +62,18 @@ export default function ColdRoomSection() {
             <div className="absolute top-0 left-0 w-72 h-72 bg-green-500/10 dark:bg-green-500/5 blur-[100px] rounded-full pointer-events-none" />
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/10 dark:bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
 
-            {/* Floating Snowflakes */}
-            <motion.div
-                animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-20 right-[15%] text-blue-300/30 dark:text-blue-400/20"
-            >
+            {/* Static Snowflakes */}
+            <div className="absolute top-20 right-[15%] text-blue-300/30 dark:text-blue-400/20">
                 <Snowflake className="size-16" />
-            </motion.div>
-            <motion.div
-                animate={{ y: [0, 10, 0], rotate: [0, -5, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-32 left-[10%] text-blue-300/20 dark:text-blue-400/10"
-            >
+            </div>
+            <div className="absolute bottom-32 left-[10%] text-blue-300/20 dark:text-blue-400/10">
                 <Snowflake className="size-12" />
-            </motion.div>
+            </div>
 
-            <div ref={containerRef} className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
+            <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
 
                 {/* Header */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.6 }}
-                    className="text-center mb-16 lg:mb-20"
-                >
+                <div className="text-center mb-16 lg:mb-20">
                     <span className="inline-block px-4 py-2 rounded-full bg-green-100 dark:bg-green-500/10 text-green-700 dark:text-green-400 text-sm font-semibold mb-6 border border-green-200 dark:border-green-500/20">
                         Cold Room Facility
                     </span>
@@ -111,16 +87,13 @@ export default function ColdRoomSection() {
                         Ensuring the safety, quality, and efficacy of pharmaceutical products with our
                         advanced temperature-controlled storage facility designed to meet the highest industry standards.
                     </p>
-                </motion.div>
+                </div>
 
                 {/* Main Content Grid */}
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
                     {/* Image Side */}
-                    <motion.div
-                        style={{ y }}
-                        className="relative order-2 lg:order-1"
-                    >
+                    <div className="relative order-2 lg:order-1">
                         <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200 dark:border-white/10">
                             <div className="aspect-[4/3] relative group">
                                 <div className="absolute inset-0 bg-[url('/coldroom.jpg')] bg-cover bg-center group-hover:scale-105 transition-transform duration-700" />
@@ -143,21 +116,17 @@ export default function ColdRoomSection() {
 
                         {/* Decorative Element */}
                         <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-green-500/20 to-blue-500/20 dark:from-green-500/10 dark:to-blue-500/10 rounded-3xl blur-2xl pointer-events-none" />
-                    </motion.div>
+                    </div>
 
                     {/* Features Grid */}
                     <div className="order-1 lg:order-2">
                         <div className="grid sm:grid-cols-2 gap-6">
-                            {features.map((feature, index) => {
+                            {features.map((feature) => {
                                 const Icon = feature.icon;
                                 const colors = colorMap[feature.color];
                                 return (
-                                    <motion.div
+                                    <div
                                         key={feature.title}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true, margin: "-50px" }}
-                                        transition={{ duration: 0.5, delay: index * 0.1 }}
                                         className={`p-6 rounded-2xl bg-white dark:bg-white/5 border ${colors.border} shadow-lg dark:shadow-none hover:shadow-xl dark:hover:bg-white/10 transition-all duration-300 group`}
                                     >
                                         <div className={`w-14 h-14 rounded-xl ${colors.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
@@ -169,7 +138,7 @@ export default function ColdRoomSection() {
                                         <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
                                             {feature.description}
                                         </p>
-                                    </motion.div>
+                                    </div>
                                 );
                             })}
                         </div>
