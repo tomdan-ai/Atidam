@@ -56,7 +56,7 @@ export default function Hero() {
                                 Retail Pharmacy
                             </h1>
                             <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-lg font-medium">
-                                Your trusted partner for pharmaceutical distribution and retail healthcare solutions.
+                                Your trusted source for wholesale Pharmaceutical distribution to Pharmacies hospitals and healthcare providers.
                             </p>
                         </div>
 
@@ -85,7 +85,7 @@ export default function Hero() {
                             </div>
 
                             <div className="border-l-0 sm:border-l-4 border-gray-200 dark:border-gray-700 pl-0 sm:pl-10 md:pl-16 lg:pl-20 pt-4 sm:pt-0 border-t-4 sm:border-t-0">
-                                <div className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-950 dark:text-white mb-1 sm:mb-2">8+</div>
+                                <div className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-950 dark:text-white mb-1 sm:mb-2">16+</div>
                                 <p className="text-xs sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.2em] font-black text-gray-400 dark:text-gray-500">Years of Excellence</p>
                             </div>
                         </div>
