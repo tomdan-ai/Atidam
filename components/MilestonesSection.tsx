@@ -1,12 +1,8 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import { Award, Trophy, Star, Medal, ArrowRight, Info } from "lucide-react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import OurStoryModal from "./OurStoryModal";
 
 const milestones = [
     {
@@ -66,49 +62,14 @@ const milestones = [
 ];
 
 export default function MilestonesSection() {
-    const sectionRef = useRef<HTMLElement>(null);
-    const headerRef = useRef<HTMLDivElement>(null);
-    const gridRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        if (!sectionRef.current) return;
-
-        const ctx = gsap.context(() => {
-            gsap.from(headerRef.current, {
-                y: 30,
-                opacity: 0,
-                duration: 1,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: headerRef.current,
-                    start: "top 85%",
-                },
-            });
-
-            if (gridRef.current) {
-                gsap.from(gridRef.current.children, {
-                    y: 50,
-                    opacity: 0,
-                    duration: 0.8,
-                    stagger: 0.1,
-                    ease: "power3.out",
-                    scrollTrigger: {
-                        trigger: gridRef.current,
-                        start: "top 90%",
-                    },
-                });
-            }
-        }, sectionRef);
-
-        return () => ctx.revert();
-    }, []);
+    const [isStoryOpen, setIsStoryOpen] = useState(false);
 
     return (
-        <section ref={sectionRef} className="py-16 lg:py-24 bg-gray-50 dark:bg-gray-900 overflow-hidden">
+        <section className="py-16 lg:py-24 bg-gray-50 dark:bg-gray-900 overflow-hidden">
             <div className="max-w-[1600px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 w-full">
 
                 {/* Header Section */}
-                <div ref={headerRef} className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 sm:gap-8 md:gap-10 lg:gap-12 mb-10 lg:mb-14">
+                <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 sm:gap-8 md:gap-10 lg:gap-12 mb-10 lg:mb-14">
                     <div className="max-w-4xl">
                         <span className="text-emerald-600 dark:text-emerald-400 font-bold uppercase tracking-widest text-xs sm:text-sm mb-3 block">Excellence Recognized</span>
                         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-950 dark:text-white leading-[1.1] tracking-tighter">
@@ -117,24 +78,24 @@ export default function MilestonesSection() {
                         </h2>
                     </div>
 
-                    <motion.button
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="flex items-center gap-2 sm:gap-3 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-full pl-5 pr-1.5 py-1.5 sm:pl-6 sm:pr-2 sm:py-2 lg:pl-8 group hover:border-gray-900 dark:hover:border-gray-500 transition-colors self-start lg:self-auto shadow-sm"
+                    <button
+                        onClick={() => setIsStoryOpen(true)}
+                        className="flex items-center gap-2 sm:gap-3 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-full pl-5 pr-1.5 py-1.5 sm:pl-6 sm:pr-2 sm:py-2 lg:pl-8 group hover:border-gray-900 dark:hover:border-gray-500 hover:scale-[1.02] active:scale-[0.98] transition-all self-start lg:self-auto shadow-sm"
                     >
                         <span className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-white">Our Story</span>
                         <div className="w-8 h-8 sm:w-10 sm:h-10 bg-emerald-100 dark:bg-emerald-900/50 rounded-full flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
                             <ArrowRight className="size-3 sm:size-4" />
                         </div>
-                    </motion.button>
+                    </button>
                 </div>
 
                 {/* Flip Cards Grid */}
-                <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                     {milestones.map((item, idx) => (
                         <FlipCard key={idx} item={item} />
                     ))}
                 </div>
+                <OurStoryModal isOpen={isStoryOpen} onClose={() => setIsStoryOpen(false)} />
             </div>
         </section>
     );
@@ -142,6 +103,7 @@ export default function MilestonesSection() {
 
 function FlipCard({ item }: { item: typeof milestones[0] }) {
     const [isFlipped, setIsFlipped] = useState(false);
+    const IconComponent = item.icon;
 
     return (
         <div
@@ -150,13 +112,12 @@ function FlipCard({ item }: { item: typeof milestones[0] }) {
             onMouseLeave={() => setIsFlipped(false)}
             onClick={() => setIsFlipped(!isFlipped)}
         >
-            <motion.div
-                className="w-full h-full relative preserve-3d transition-all duration-500"
-                animate={{ rotateY: isFlipped ? 180 : 0 }}
-                transition={{ duration: 0.6, type: "spring", stiffness: 260, damping: 20 }}
+            <div
+                className={`w-full h-full relative preserve-3d transition-all duration-500 ${isFlipped ? '[transform:rotateY(180deg)]' : ''}`}
+                style={{ transformStyle: 'preserve-3d' }}
             >
                 {/* Front Face */}
-                <div className="absolute inset-0 backface-hidden rounded-3xl overflow-hidden shadow-md border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-800">
+                <div className="absolute inset-0 backface-hidden rounded-3xl overflow-hidden shadow-md border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-800" style={{ backfaceVisibility: 'hidden' }}>
                     <img
                         src={item.image}
                         alt={item.title}
@@ -182,11 +143,11 @@ function FlipCard({ item }: { item: typeof milestones[0] }) {
 
                 {/* Back Face */}
                 <div
-                    className="absolute inset-0 backface-hidden rounded-3xl overflow-hidden shadow-xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-800 p-8 flex flex-col items-center justify-center text-center rotate-y-180"
-                    style={{ transform: "rotateY(180deg)" }}
+                    className="absolute inset-0 backface-hidden rounded-3xl overflow-hidden shadow-xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-800 p-8 flex flex-col items-center justify-center text-center"
+                    style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
                 >
                     <div className={`w-16 h-16 ${item.bg} ${item.color} rounded-2xl flex items-center justify-center mb-6`}>
-                        <item.icon className="size-8" />
+                        <IconComponent className="size-8" />
                     </div>
 
                     <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold leading-tight mb-2">
@@ -201,7 +162,7 @@ function FlipCard({ item }: { item: typeof milestones[0] }) {
                         {item.description}
                     </p>
                 </div>
-            </motion.div>
+            </div>
         </div>
     );
 }
