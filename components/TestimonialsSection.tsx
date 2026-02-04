@@ -1,12 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowLeft, ArrowRight, Star } from "lucide-react";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const testimonials = [
     {
@@ -26,63 +20,13 @@ const testimonials = [
 ];
 
 export default function TestimonialsSection() {
-    const sectionRef = useRef<HTMLElement>(null);
-    const leftRef = useRef<HTMLDivElement>(null);
-    const rightRef = useRef<HTMLDivElement>(null);
-    const cardsContainerRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        if (!sectionRef.current) return;
-
-        const ctx = gsap.context(() => {
-            gsap.from(leftRef.current, {
-                x: -100,
-                opacity: 0,
-                duration: 1.5,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top 70%",
-                },
-            });
-
-            gsap.from(rightRef.current?.children || [], {
-                y: 50,
-                opacity: 0,
-                duration: 1.2,
-                stagger: 0.3,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: rightRef.current,
-                    start: "top 80%",
-                },
-            });
-
-            if (cardsContainerRef.current) {
-                gsap.from(cardsContainerRef.current.children, {
-                    y: 80,
-                    opacity: 0,
-                    duration: 1.2,
-                    stagger: 0.4,
-                    ease: "back.out(1.7)",
-                    scrollTrigger: {
-                        trigger: cardsContainerRef.current,
-                        start: "top 85%",
-                    },
-                });
-            }
-        }, sectionRef);
-
-        return () => ctx.revert();
-    }, []);
-
     return (
-        <section ref={sectionRef} className="min-h-screen py-16 sm:py-20 md:py-28 lg:py-32 bg-white dark:bg-black relative overflow-hidden">
+        <section className="min-h-screen py-16 sm:py-20 md:py-28 lg:py-32 bg-white dark:bg-black relative overflow-hidden">
             <div className="max-w-[1600px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 h-full flex flex-col justify-center">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 md:gap-16 lg:gap-20 items-start">
 
                     {/* Left Column: Big Image */}
-                    <div ref={leftRef} className="relative rounded-2xl sm:rounded-[2rem] lg:rounded-[3rem] overflow-hidden aspect-square sm:aspect-[4/5] shadow-xl sm:shadow-2xl">
+                    <div className="relative rounded-2xl sm:rounded-[2rem] lg:rounded-[3rem] overflow-hidden aspect-square sm:aspect-[4/5] shadow-xl sm:shadow-2xl">
                         <img
                             src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1000&auto=format&fit=crop"
                             alt="Professional pharmacist"
@@ -91,7 +35,7 @@ export default function TestimonialsSection() {
                     </div>
 
                     {/* Right Column: Content */}
-                    <div ref={rightRef} className="flex flex-col gap-6 sm:gap-8 md:gap-10 pt-0 lg:pt-10">
+                    <div className="flex flex-col gap-6 sm:gap-8 md:gap-10 pt-0 lg:pt-10">
                         <div>
                             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter text-gray-950 dark:text-white mb-4 sm:mb-6 md:mb-8 leading-none">
                                 We value the trust our customers place in us.
@@ -103,31 +47,22 @@ export default function TestimonialsSection() {
 
                         {/* Navigation controls */}
                         <div className="flex gap-3 sm:gap-4">
-                            <motion.button
-                                whileHover={{ scale: 1.1 }}
-                                whileTap={{ scale: 0.9 }}
-                                className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center text-gray-400 dark:text-gray-500 hover:border-gray-950 dark:hover:border-gray-400 hover:text-gray-950 dark:hover:text-white transition-colors"
-                            >
+                            <button className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center text-gray-400 dark:text-gray-500 hover:border-gray-950 dark:hover:border-gray-400 hover:text-gray-950 dark:hover:text-white hover:scale-110 active:scale-90 transition-all">
                                 <ArrowLeft className="size-5 sm:size-6" />
-                            </motion.button>
-                            <motion.button
-                                whileHover={{ scale: 1.1 }}
-                                whileTap={{ scale: 0.9 }}
-                                className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center text-gray-400 dark:text-gray-500 hover:border-gray-950 dark:hover:border-gray-400 hover:text-gray-950 dark:hover:text-white transition-colors"
-                            >
+                            </button>
+                            <button className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center text-gray-400 dark:text-gray-500 hover:border-gray-950 dark:hover:border-gray-400 hover:text-gray-950 dark:hover:text-white hover:scale-110 active:scale-90 transition-all">
                                 <ArrowRight className="size-5 sm:size-6" />
-                            </motion.button>
+                            </button>
                         </div>
                     </div>
                 </div>
 
                 {/* Testimonial Cards: Floating/Overlapping Grid */}
-                <div ref={cardsContainerRef} className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-10 md:mt-[-6rem] lg:mt-[-10rem] lg:pl-[10rem] xl:pl-[20rem] relative z-10 w-full">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-10 md:mt-[-6rem] lg:mt-[-10rem] lg:pl-[10rem] xl:pl-[20rem] relative z-10 w-full">
                     {testimonials.map((t, idx) => (
-                        <motion.div
+                        <div
                             key={idx}
-                            whileHover={{ y: -10 }}
-                            className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl p-5 sm:p-6 md:p-8 lg:p-10 rounded-2xl sm:rounded-[2rem] lg:rounded-[2.5rem] shadow-lg sm:shadow-xl md:shadow-2xl border border-gray-50 dark:border-gray-800 flex flex-col gap-4 sm:gap-5 md:gap-6"
+                            className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl p-5 sm:p-6 md:p-8 lg:p-10 rounded-2xl sm:rounded-[2rem] lg:rounded-[2.5rem] shadow-lg sm:shadow-xl md:shadow-2xl border border-gray-50 dark:border-gray-800 flex flex-col gap-4 sm:gap-5 md:gap-6 hover:-translate-y-2 transition-transform duration-300"
                         >
                             <div className="flex items-center gap-4 sm:gap-5 md:gap-6">
                                 <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-xl sm:rounded-2xl bg-gray-100 dark:bg-gray-800 overflow-hidden shadow-sm">
@@ -151,7 +86,7 @@ export default function TestimonialsSection() {
                                 </div>
                                 <span className="text-xl sm:text-2xl font-black text-gray-950 dark:text-white">{t.rating}</span>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
             </div>
