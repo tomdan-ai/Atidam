@@ -1,12 +1,5 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
-
 const teamMembers = [
     {
         name: "Dr. Adebayo Atidam",
@@ -82,96 +75,18 @@ const stats = [
 ];
 
 export default function AboutSection() {
-    const sectionRef = useRef<HTMLElement>(null);
-    const headingRef = useRef<HTMLHeadingElement>(null);
-    const paragraphRef = useRef<HTMLParagraphElement>(null);
-    const teamRef = useRef<HTMLDivElement>(null);
-    const cardsRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        if (!sectionRef.current) return;
-
-        const ctx = gsap.context(() => {
-            gsap.from(headingRef.current, {
-                y: 80,
-                opacity: 0,
-                duration: 1.4,
-                ease: "power3.inOut",
-                scrollTrigger: {
-                    trigger: headingRef.current,
-                    start: "top 85%",
-                    end: "top 50%",
-                    toggleActions: "play none none reverse",
-                },
-            });
-
-            gsap.from(paragraphRef.current, {
-                y: 60,
-                opacity: 0,
-                duration: 1.2,
-                ease: "power3.inOut",
-                scrollTrigger: {
-                    trigger: paragraphRef.current,
-                    start: "top 85%",
-                    end: "top 50%",
-                    toggleActions: "play none none reverse",
-                },
-            });
-
-            if (teamRef.current) {
-                const members = teamRef.current.querySelectorAll(".team-member");
-                gsap.from(members, {
-                    y: 60,
-                    opacity: 0,
-                    duration: 1,
-                    stagger: 0.15,
-                    ease: "power3.out",
-                    scrollTrigger: {
-                        trigger: teamRef.current,
-                        start: "top 80%",
-                    },
-                });
-            }
-
-            if (cardsRef.current) {
-                const cards = cardsRef.current.querySelectorAll(".stat-card");
-                gsap.from(cards, {
-                    y: 100,
-                    opacity: 0,
-                    duration: 1.2,
-                    stagger: 0.2,
-                    ease: "power3.inOut",
-                    scrollTrigger: {
-                        trigger: cardsRef.current,
-                        start: "top 80%",
-                        end: "top 40%",
-                        toggleActions: "play none none reverse",
-                    },
-                });
-            }
-        }, sectionRef);
-
-        return () => ctx.revert();
-    }, []);
-
     return (
-        <section id="about" ref={sectionRef} className="min-h-screen py-16 sm:py-20 md:py-28 lg:py-32 bg-white dark:bg-black flex flex-col justify-center">
+        <section id="about" className="min-h-screen py-16 sm:py-20 md:py-28 lg:py-32 bg-white dark:bg-black flex flex-col justify-center">
             <div className="max-w-[1600px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 w-full">
                 {/* Header Section */}
                 <div className="text-center mb-12 sm:mb-16 md:mb-20">
-                    <h2
-                        ref={headingRef}
-                        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-gray-300 dark:text-gray-600 tracking-wide italic flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mb-6 sm:mb-8 md:mb-12"
-                    >
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-gray-300 dark:text-gray-600 tracking-wide italic flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mb-6 sm:mb-8 md:mb-12">
                         <span>MEET OUR</span>
                         <span className="text-emerald-600 dark:text-emerald-400 font-medium not-italic">LEADERSHIP</span>
                         <span>TEAM</span>
                     </h2>
 
-                    <p
-                        ref={paragraphRef}
-                        className="text-gray-600 dark:text-gray-400 text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed px-4 sm:px-0"
-                    >
+                    <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
                         Our experienced team of healthcare professionals and business leaders
                         are dedicated to ensuring the highest standards of pharmaceutical
                         distribution and customer care.
@@ -179,12 +94,11 @@ export default function AboutSection() {
                 </div>
 
                 {/* Team Members Grid */}
-                <div ref={teamRef} className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10 mb-16 sm:mb-20 md:mb-24">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10 mb-16 sm:mb-20 md:mb-24">
                     {teamMembers.map((member, index) => (
-                        <motion.div
+                        <div
                             key={index}
-                            whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeInOut" } }}
-                            className="team-member flex flex-col items-center text-center group"
+                            className="team-member flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300"
                         >
                             {/* Circular Image */}
                             <div className="relative mb-4 sm:mb-6">
@@ -211,17 +125,16 @@ export default function AboutSection() {
                             <p className="text-gray-400 dark:text-gray-500 text-[10px] sm:text-xs leading-relaxed max-w-[200px] sm:max-w-[220px] md:max-w-[240px]">
                                 {member.portfolio}
                             </p>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
 
                 {/* Stats Cards */}
-                <div ref={cardsRef} className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
                     {stats.map((stat, index) => (
-                        <motion.div
+                        <div
                             key={index}
-                            whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeInOut" } }}
-                            className={`stat-card ${stat.bgColor} rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 lg:p-10 flex flex-col justify-between min-h-[180px] sm:min-h-[220px] md:min-h-[280px] lg:min-h-[320px] shadow-sm hover:shadow-xl transition-shadow duration-500`}
+                            className={`stat-card ${stat.bgColor} rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 lg:p-10 flex flex-col justify-between min-h-[180px] sm:min-h-[220px] md:min-h-[280px] lg:min-h-[320px] shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300`}
                         >
                             <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 dark:text-white">
                                 {stat.number}
@@ -234,7 +147,7 @@ export default function AboutSection() {
                                     {stat.description}
                                 </p>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
             </div>
